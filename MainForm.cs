@@ -20,6 +20,7 @@ namespace Zverev_Kursova_OBD
 	public partial class MainForm : Form
 	{
 		bool IsInTable=false;
+		bool IsItExists=true;
 		string ZakazName="";
 		public MainForm()
 		{
@@ -138,6 +139,7 @@ namespace Zverev_Kursova_OBD
 			SetAllValues();
 			}
 			if(IsInTable==false) ClearAllValues();
+			IsItExists=true;
 		}
 		
 		void SearchButtonClick(object sender, EventArgs e)
@@ -190,6 +192,7 @@ namespace Zverev_Kursova_OBD
 			NumberDataGridView.DataSource=mysql.exWithResult(@"select last_insert_id()");//(@"select * from vurib;");
 			NumberTextBox.Text=NumberDataGridView.Rows[0].Cells[0].Value.ToString();
 			VirybNameTextBox.Text=ZakazName;
+			IsItExists=false;
 		}
 		
 		void OKButtonClick(object sender, EventArgs e)
@@ -211,6 +214,7 @@ namespace Zverev_Kursova_OBD
 			 string s11=GuaranteeComboBox.Text;
 			 string s12=ExtraInfoRichTextBox.Text;
 			 string s13=MasterComboBox.Text;
+			 if(IsItExists==false){
 			mysql.exWithoutResult(@"insert into "+ZakazName+" (ViribName,virib_id, ViribModel,VlasnikName"+
 		",VlasnikAdress,VlasnikHomeNumber,VlasnikWorkNumber,VlasnikMobileNumber,Skargi"
 		+",VikonanaRobota,Primitki, Guarantee, SerialNumber, ExtraVidomosti,"+
@@ -220,6 +224,17 @@ namespace Zverev_Kursova_OBD
 		s8+"','"+s9+"','"+s10+"','"+
 		s11+"',"+sn+",'"+s12+"','"+
 		s13+"');");
+			 	IsItExists=true;
+			 }
+			 if(IsItExists=true){
+			 mysql.exWithoutResult(@"update "+ZakazName+" set ViribName='" +s1+ "',"+
+		"ViribModel='"+s2+"',VlasnikName='"+s3+"',VlasnikAdress='"+
+		s4+"',VlasnikHomeNumber='"+s5+"',VlasnikWorkNumber='"+s6
+		+"',VlasnikMobileNumber='"+s7+"',Skargi='"+
+		s8+"',VikonanaRobota='"+s9+"',Primitki='"+s10+"',Guarantee='"+
+		s11+"', SerialNumber="+sn+",ExtraVidomosti='"+s12+"',MasterName='"+
+		s13+"' where virib_id="+num+";");
+			}
 		}
 	}
 }
