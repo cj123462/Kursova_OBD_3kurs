@@ -119,12 +119,16 @@ namespace Zverev_Kursova_OBD
 			this.label14 = new System.Windows.Forms.Label();
 			this.GuaranteePrintButton = new System.Windows.Forms.Button();
 			this.ExitButton = new System.Windows.Forms.Button();
+			this.MasterDataGridView = new System.Windows.Forms.DataGridView();
+			this.FirmiDataGridView = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
 			this.VuribInfoPanel.SuspendLayout();
 			this.GuaranteeInfoPanel.SuspendLayout();
 			this.ComplectPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MasterDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.FirmiDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainDataGrid
@@ -625,6 +629,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// label18
 			// 
+			this.label18.BackColor = System.Drawing.SystemColors.Control;
 			this.label18.Location = new System.Drawing.Point(201, 499);
 			this.label18.Name = "label18";
 			this.label18.Size = new System.Drawing.Size(142, 14);
@@ -764,6 +769,7 @@ namespace Zverev_Kursova_OBD
 			this.SettingsButton.TabIndex = 31;
 			this.SettingsButton.Text = "Настройки";
 			this.SettingsButton.UseVisualStyleBackColor = true;
+			this.SettingsButton.Click += new System.EventHandler(this.SettingsButtonClick);
 			// 
 			// CopyButton
 			// 
@@ -902,12 +908,32 @@ namespace Zverev_Kursova_OBD
 			this.ExitButton.Text = "Вихід";
 			this.ExitButton.UseVisualStyleBackColor = true;
 			// 
+			// MasterDataGridView
+			// 
+			this.MasterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.MasterDataGridView.Location = new System.Drawing.Point(12, 654);
+			this.MasterDataGridView.Name = "MasterDataGridView";
+			this.MasterDataGridView.Size = new System.Drawing.Size(8, 8);
+			this.MasterDataGridView.TabIndex = 36;
+			this.MasterDataGridView.Visible = false;
+			// 
+			// FirmiDataGridView
+			// 
+			this.FirmiDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.FirmiDataGridView.Location = new System.Drawing.Point(26, 654);
+			this.FirmiDataGridView.Name = "FirmiDataGridView";
+			this.FirmiDataGridView.Size = new System.Drawing.Size(10, 10);
+			this.FirmiDataGridView.TabIndex = 37;
+			this.FirmiDataGridView.Visible = false;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.Controls.Add(this.FirmiDataGridView);
+			this.Controls.Add(this.MasterDataGridView);
 			this.Controls.Add(this.ExitButton);
 			this.Controls.Add(this.GuaranteePrintButton);
 			this.Controls.Add(this.ComplectPanel);
@@ -958,9 +984,13 @@ namespace Zverev_Kursova_OBD
 			this.GuaranteeInfoPanel.PerformLayout();
 			this.ComplectPanel.ResumeLayout(false);
 			this.ComplectPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.MasterDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.FirmiDataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.DataGridView FirmiDataGridView;
+		private System.Windows.Forms.DataGridView MasterDataGridView;
 		private System.Windows.Forms.Button ExitButton;
 		private System.Windows.Forms.Button GuaranteePrintButton;
 		private System.Windows.Forms.Label label27;
