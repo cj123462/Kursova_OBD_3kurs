@@ -36,6 +36,7 @@ namespace Zverev_Kursova_OBD
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.MainDataGrid = new System.Windows.Forms.DataGridView();
 			this.RadioGroupPanel = new System.Windows.Forms.Panel();
 			this.SecondDateComboBox = new System.Windows.Forms.ComboBox();
@@ -97,7 +98,6 @@ namespace Zverev_Kursova_OBD
 			this.AllCostTextBox = new System.Windows.Forms.TextBox();
 			this.label25 = new System.Windows.Forms.Label();
 			this.GuaranteeExpireTextBox = new System.Windows.Forms.TextBox();
-			this.GuaranteeExpireComboBox = new System.Windows.Forms.ComboBox();
 			this.PriyomButtom = new System.Windows.Forms.Button();
 			this.OKButton = new System.Windows.Forms.Button();
 			this.PrintButton = new System.Windows.Forms.Button();
@@ -121,6 +121,8 @@ namespace Zverev_Kursova_OBD
 			this.ExitButton = new System.Windows.Forms.Button();
 			this.MasterDataGridView = new System.Windows.Forms.DataGridView();
 			this.FirmiDataGridView = new System.Windows.Forms.DataGridView();
+			this.BackPictureBox = new System.Windows.Forms.PictureBox();
+			this.GuaranteeDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -129,12 +131,13 @@ namespace Zverev_Kursova_OBD
 			this.ComplectPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.MasterDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FirmiDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.BackPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainDataGrid
 			// 
 			this.MainDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.MainDataGrid.Location = new System.Drawing.Point(12, 12);
+			this.MainDataGrid.Location = new System.Drawing.Point(12, 67);
 			this.MainDataGrid.Name = "MainDataGrid";
 			this.MainDataGrid.Size = new System.Drawing.Size(180, 636);
 			this.MainDataGrid.TabIndex = 0;
@@ -708,14 +711,6 @@ namespace Zverev_Kursova_OBD
 			this.GuaranteeExpireTextBox.Size = new System.Drawing.Size(100, 20);
 			this.GuaranteeExpireTextBox.TabIndex = 24;
 			// 
-			// GuaranteeExpireComboBox
-			// 
-			this.GuaranteeExpireComboBox.FormattingEnabled = true;
-			this.GuaranteeExpireComboBox.Location = new System.Drawing.Point(934, 623);
-			this.GuaranteeExpireComboBox.Name = "GuaranteeExpireComboBox";
-			this.GuaranteeExpireComboBox.Size = new System.Drawing.Size(127, 21);
-			this.GuaranteeExpireComboBox.TabIndex = 25;
-			// 
 			// PriyomButtom
 			// 
 			this.PriyomButtom.Location = new System.Drawing.Point(198, 651);
@@ -911,7 +906,7 @@ namespace Zverev_Kursova_OBD
 			// MasterDataGridView
 			// 
 			this.MasterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.MasterDataGridView.Location = new System.Drawing.Point(12, 654);
+			this.MasterDataGridView.Location = new System.Drawing.Point(0, 679);
 			this.MasterDataGridView.Name = "MasterDataGridView";
 			this.MasterDataGridView.Size = new System.Drawing.Size(8, 8);
 			this.MasterDataGridView.TabIndex = 36;
@@ -920,11 +915,29 @@ namespace Zverev_Kursova_OBD
 			// FirmiDataGridView
 			// 
 			this.FirmiDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.FirmiDataGridView.Location = new System.Drawing.Point(26, 654);
+			this.FirmiDataGridView.Location = new System.Drawing.Point(0, 693);
 			this.FirmiDataGridView.Name = "FirmiDataGridView";
 			this.FirmiDataGridView.Size = new System.Drawing.Size(10, 10);
 			this.FirmiDataGridView.TabIndex = 37;
 			this.FirmiDataGridView.Visible = false;
+			// 
+			// BackPictureBox
+			// 
+			this.BackPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("BackPictureBox.Image")));
+			this.BackPictureBox.Location = new System.Drawing.Point(12, 11);
+			this.BackPictureBox.Name = "BackPictureBox";
+			this.BackPictureBox.Size = new System.Drawing.Size(40, 40);
+			this.BackPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.BackPictureBox.TabIndex = 38;
+			this.BackPictureBox.TabStop = false;
+			this.BackPictureBox.Click += new System.EventHandler(this.BackPictureBoxClick);
+			// 
+			// GuaranteeDateTimePicker
+			// 
+			this.GuaranteeDateTimePicker.Location = new System.Drawing.Point(930, 622);
+			this.GuaranteeDateTimePicker.Name = "GuaranteeDateTimePicker";
+			this.GuaranteeDateTimePicker.Size = new System.Drawing.Size(131, 20);
+			this.GuaranteeDateTimePicker.TabIndex = 39;
 			// 
 			// MainForm
 			// 
@@ -932,6 +945,8 @@ namespace Zverev_Kursova_OBD
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.Controls.Add(this.GuaranteeDateTimePicker);
+			this.Controls.Add(this.BackPictureBox);
 			this.Controls.Add(this.FirmiDataGridView);
 			this.Controls.Add(this.MasterDataGridView);
 			this.Controls.Add(this.ExitButton);
@@ -944,7 +959,6 @@ namespace Zverev_Kursova_OBD
 			this.Controls.Add(this.PrintButton);
 			this.Controls.Add(this.OKButton);
 			this.Controls.Add(this.PriyomButtom);
-			this.Controls.Add(this.GuaranteeExpireComboBox);
 			this.Controls.Add(this.GuaranteeExpireTextBox);
 			this.Controls.Add(this.label25);
 			this.Controls.Add(this.AllCostTextBox);
@@ -986,9 +1000,12 @@ namespace Zverev_Kursova_OBD
 			this.ComplectPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.MasterDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FirmiDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.BackPictureBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.DateTimePicker GuaranteeDateTimePicker;
+		private System.Windows.Forms.PictureBox BackPictureBox;
 		private System.Windows.Forms.DataGridView FirmiDataGridView;
 		private System.Windows.Forms.DataGridView MasterDataGridView;
 		private System.Windows.Forms.Button ExitButton;
@@ -1012,7 +1029,6 @@ namespace Zverev_Kursova_OBD
 		private System.Windows.Forms.Button PrintButton;
 		private System.Windows.Forms.Button OKButton;
 		private System.Windows.Forms.Button PriyomButtom;
-		private System.Windows.Forms.ComboBox GuaranteeExpireComboBox;
 		private System.Windows.Forms.TextBox GuaranteeExpireTextBox;
 		private System.Windows.Forms.Label label25;
 		private System.Windows.Forms.TextBox AllCostTextBox;

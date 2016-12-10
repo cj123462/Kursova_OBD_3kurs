@@ -18,16 +18,10 @@ namespace Zverev_Kursova_OBD
 	/// </summary>
 	public partial class MainForm : Form
 	{
+		bool IsInTable=false;
 		public MainForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
 		}
 		
 		void MainFormLoad(object sender, EventArgs e)
@@ -63,15 +57,45 @@ namespace Zverev_Kursova_OBD
 		
 		void MainDataGridCellClick(object sender, DataGridViewCellEventArgs e)
 		{
+			if(!IsInTable){
 			MySQL mysql = new MySQL();
 			string str= MainDataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
 			MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+str+";");
+			IsInTable=true;
+			SetAllValues();
+			}
 		}
 		
 		void SettingsButtonClick(object sender, EventArgs e)
 		{
 			SettingsForm sf = new SettingsForm();
 			sf.Show();
+		}
+		
+		void BackPictureBoxClick(object sender, EventArgs e)
+		{
+			if(IsInTable){
+			MySQL mysql = new MySQL();
+			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
+			try{
+			foreach(DataGridViewRow row in MainDataGrid.Rows){
+				if(row.Cells[0].Value.ToString()=="firmi" || row.Cells[0].Value.ToString()=="masters") 
+					row.Visible=false;
+				}
+			}
+			catch(Exception ex){};
+			IsInTable=false;
+			}
+		}
+		
+		void SetAllValues(){
+			if(IsInTable){
+				int rowid = MainDataGrid.CurrentRow.Index;
+				NumberTextBox.Text=MainDataGrid.Rows[rowid].Cells[1].Value.ToString();
+				VirybNameTextBox.Text=MainDataGrid.Rows[rowid].Cells[0].Value.ToString();
+				VuribModelTextBox.Text=MainDataGrid.Rows[rowid].Cells[2].Value.ToString();
+				ClientNameTextBox.Text=MainDataGrid.Rows[rowid].Cells[3].Value.ToString();
+			}
 		}
 	}
 }
