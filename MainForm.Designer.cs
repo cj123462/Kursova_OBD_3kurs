@@ -142,6 +142,7 @@ namespace Zverev_Kursova_OBD
 			this.MainDataGrid.Size = new System.Drawing.Size(180, 636);
 			this.MainDataGrid.TabIndex = 0;
 			this.MainDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDataGridCellClick);
+			this.MainDataGrid.SelectionChanged += new System.EventHandler(this.MainDataGridSelectionChanged);
 			// 
 			// RadioGroupPanel
 			// 
@@ -746,6 +747,7 @@ namespace Zverev_Kursova_OBD
 			this.SearchButton.TabIndex = 29;
 			this.SearchButton.Text = "Режим пошуку(F3)";
 			this.SearchButton.UseVisualStyleBackColor = true;
+			this.SearchButton.Click += new System.EventHandler(this.SearchButtonClick);
 			// 
 			// VidachaButton
 			// 
