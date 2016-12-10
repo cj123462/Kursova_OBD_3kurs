@@ -21,6 +21,7 @@ namespace Zverev_Kursova_OBD
 	{
 		bool IsInTable=false;
 		bool IsItExists=true;
+		bool IsSearchModeOn=false;
 		string ZakazName="";
 		public MainForm()
 		{
@@ -144,33 +145,8 @@ namespace Zverev_Kursova_OBD
 		
 		void SearchButtonClick(object sender, EventArgs e)
 		{
-			MySQL mysql = new MySQL();
-			string findnum = NumberTextBox.Text;
-			int rowcount = MainDataGrid.DisplayedRowCount(false);
-			string[] tablenames = new string[rowcount];
-			StringBuilder querry= new StringBuilder();
-			querry.Append("select * from( (");
-			for (int i = 0; i < rowcount; i++) {
-				string str = MainDataGrid.Rows[i].Cells[0].Value.ToString();
-				if(str!="firmi" && str!="masters" && str!="vurib")
-				tablenames[i]=str;
-			}
-			for (int i = 0; i < rowcount; i++) {
-				if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
-					if(i < rowcount-1)
-						querry.Append("select ViribName,virib_id,ViribModel," +
-						"VlasnikName, VlasnikAdress, VlasnikHomeNumber," +
-						"VlasnikWorkNumber, VlasnikMobileNumber," +
-						"Skargi, VikonanaRobota, Primitki," +
-						"Guarantee, SerialNumber, ExtraVidomosti, " +
-			"MasterName, ZapchastiCost, TotalCost as virib_id"+i+" from "+tablenames[i]+")");
-					if(i<rowcount-2) querry.Append( " union all ( ");
-				}
-			}
-			querry.Append(") as t where virib_id="+findnum+";");
-			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
-			IsInTable=true;
-			SetAllValues();
+			IsSearchModeOn=true;
+			SetColors(SystemColors.GradientActiveCaption);
 		}
 		
 		void MainDataGridDoubleClick(object sender, EventArgs e)
@@ -197,6 +173,7 @@ namespace Zverev_Kursova_OBD
 		
 		void OKButtonClick(object sender, EventArgs e)
 		{
+			if(IsSearchModeOn==false){
 			MySQL mysql = new MySQL();
 			int num=Int32.Parse(NumberTextBox.Text);
 			int sn=0;
@@ -235,6 +212,58 @@ namespace Zverev_Kursova_OBD
 		s11+"', SerialNumber="+sn+",ExtraVidomosti='"+s12+"',MasterName='"+
 		s13+"' where virib_id="+num+";");
 			}
+			}
+			if(IsSearchModeOn==true){
+				SetColors(SystemColors.Window);
+				IsSearchModeOn=false;
+				MySQL mysql = new MySQL();
+			string findnum = NumberTextBox.Text;
+			int rowcount = MainDataGrid.DisplayedRowCount(false);
+			string[] tablenames = new string[rowcount];
+			StringBuilder querry= new StringBuilder();
+			querry.Append("select * from( (");
+			for (int i = 0; i < rowcount; i++) {
+				string str = MainDataGrid.Rows[i].Cells[0].Value.ToString();
+				if(str!="firmi" && str!="masters" && str!="vurib")
+				tablenames[i]=str;
+			}
+			for (int i = 0; i < rowcount; i++) {
+				if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
+					if(i < rowcount-1)
+						querry.Append("select ViribName,virib_id,ViribModel," +
+						"VlasnikName, VlasnikAdress, VlasnikHomeNumber," +
+						"VlasnikWorkNumber, VlasnikMobileNumber," +
+						"Skargi, VikonanaRobota, Primitki," +
+						"Guarantee, SerialNumber, ExtraVidomosti, " +
+			"MasterName, ZapchastiCost, TotalCost as virib_id"+i+" from "+tablenames[i]+")");
+					if(i<rowcount-2) querry.Append( " union all ( ");
+				}
+			}
+			querry.Append(") as t where virib_id="+findnum+";");
+			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
+			IsInTable=true;
+			SetAllValues();
+			}
+		}
+		
+		void SetColors(Color c){
+				NumberTextBox.BackColor=c;
+				VirybNameTextBox.BackColor=c;;
+				VuribModelTextBox.BackColor=c;
+				ClientNameTextBox.BackColor=c;
+				ClientAdressTextBox.BackColor=c;
+				ClientHomeNumberTextBox.BackColor=c;
+				ClientWorkNumberTextBox.BackColor=c;
+				ClientMobileNumberTextBox.BackColor=c;
+				SkargiTextBox.BackColor=c;
+				MadeWorkRichTextBox.BackColor=c;
+				PrimitkiTextBox.BackColor=c;
+				GuaranteeComboBox.BackColor=c;
+				SerialNumberTextBox.BackColor=c;
+				ExtraInfoRichTextBox.BackColor=c;
+				MasterComboBox.BackColor=c;
+				ZapchastiCostTextBox.BackColor=c;
+				AllCostTextBox.BackColor=c;
 		}
 	}
 }

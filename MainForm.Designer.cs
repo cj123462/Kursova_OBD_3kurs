@@ -485,6 +485,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// ClientNameTextBox
 			// 
+			this.ClientNameTextBox.BackColor = System.Drawing.SystemColors.Window;
 			this.ClientNameTextBox.Location = new System.Drawing.Point(86, 10);
 			this.ClientNameTextBox.Name = "ClientNameTextBox";
 			this.ClientNameTextBox.Size = new System.Drawing.Size(450, 20);
