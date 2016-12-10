@@ -20,6 +20,7 @@ namespace Zverev_Kursova_OBD
 	public partial class MainForm : Form
 	{
 		bool IsInTable=false;
+		string ZakazName="";
 		public MainForm()
 		{
 			InitializeComponent();
@@ -60,13 +61,8 @@ namespace Zverev_Kursova_OBD
 		
 		void MainDataGridCellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if(!IsInTable){
-			MySQL mysql = new MySQL();
-			string str= MainDataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
-			MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+str+";");
-			IsInTable=true;
-			SetAllValues();
-			}
+			ZakazName=MainDataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
+			PriyomButtom.Enabled=true;
 		}
 		
 		void SettingsButtonClick(object sender, EventArgs e)
@@ -161,21 +157,69 @@ namespace Zverev_Kursova_OBD
 				if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
 					if(i < rowcount-1)
 						querry.Append("select ViribName,virib_id,ViribModel," +
-"VlasnikName, VlasnikAdress, VlasnikHomeNumber," +
-"VlasnikWorkNumber, VlasnikMobileNumber," +
-"Skargi, VikonanaRobota, Primitki," +
-"Guarantee, SerialNumber, ExtraVidomosti, " +
-"MasterName, ZapchastiCost, TotalCost as virib_id"+i+" from "+tablenames[i]+")");
+						"VlasnikName, VlasnikAdress, VlasnikHomeNumber," +
+						"VlasnikWorkNumber, VlasnikMobileNumber," +
+						"Skargi, VikonanaRobota, Primitki," +
+						"Guarantee, SerialNumber, ExtraVidomosti, " +
+			"MasterName, ZapchastiCost, TotalCost as virib_id"+i+" from "+tablenames[i]+")");
 					if(i<rowcount-2) querry.Append( " union all ( ");
 				}
 			}
 			querry.Append(") as t where virib_id="+findnum+";");
 			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
 			IsInTable=true;
-			//MadeWorkRichTextBox.Text=querry.ToString();
-			}
-			//SetAllValues();
+			SetAllValues();
+		}
 		
-	
+		void MainDataGridDoubleClick(object sender, EventArgs e)
+		{
+			if(!IsInTable){
+			MySQL mysql = new MySQL();
+			int rowindex = MainDataGrid.CurrentRow.Index;
+			string str= MainDataGrid.Rows[rowindex].Cells[0].Value.ToString();
+			MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+str+";");
+			IsInTable=true;
+			SetAllValues();
+			}
+		}
+		
+		void PriyomButtomClick(object sender, EventArgs e)
+		{
+			MySQL mysql = new MySQL();
+			mysql.exWithoutResult(@"insert into vurib (void) values('');");
+			NumberDataGridView.DataSource=mysql.exWithResult(@"select last_insert_id()");//(@"select * from vurib;");
+			NumberTextBox.Text=NumberDataGridView.Rows[0].Cells[0].Value.ToString();
+			VirybNameTextBox.Text=ZakazName;
+		}
+		
+		void OKButtonClick(object sender, EventArgs e)
+		{
+			MySQL mysql = new MySQL();
+			int num=Int32.Parse(NumberTextBox.Text);
+			int sn=0;
+			if(SerialNumberTextBox.Text!="") sn=Int32.Parse(SerialNumberTextBox.Text);
+			 string s1=VirybNameTextBox.Text;
+			 string s2=VuribModelTextBox.Text;
+			 string s3=ClientNameTextBox.Text;
+			 string s4=ClientAdressTextBox.Text;
+			 string s5=ClientHomeNumberTextBox.Text;
+			 string s6=ClientWorkNumberTextBox.Text;
+			 string s7=ClientMobileNumberTextBox.Text;
+			 string s8=SkargiTextBox.Text;
+			 string s9=MadeWorkRichTextBox.Text;
+			 string s10=PrimitkiTextBox.Text;
+			 string s11=GuaranteeComboBox.Text;
+			 string s12=ExtraInfoRichTextBox.Text;
+			 string s13=MasterComboBox.Text;
+			mysql.exWithoutResult(@"insert into "+ZakazName+" (ViribName,virib_id, ViribModel,VlasnikName"+
+		",VlasnikAdress,VlasnikHomeNumber,VlasnikWorkNumber,VlasnikMobileNumber,Skargi"
+		+",VikonanaRobota,Primitki, Guarantee, SerialNumber, ExtraVidomosti,"+
+		"MasterName) values('" +s1+ "',"+num+",'"+s2+"','"+s3+"','"+
+		s4+"','"+s5+"','"+s6
+		+"','"+s7+"','"+
+		s8+"','"+s9+"','"+s10+"','"+
+		s11+"',"+sn+",'"+s12+"','"+
+		s13+"');");
+		}
 	}
 }

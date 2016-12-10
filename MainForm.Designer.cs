@@ -123,6 +123,7 @@ namespace Zverev_Kursova_OBD
 			this.FirmiDataGridView = new System.Windows.Forms.DataGridView();
 			this.BackPictureBox = new System.Windows.Forms.PictureBox();
 			this.GuaranteeDateTimePicker = new System.Windows.Forms.DateTimePicker();
+			this.NumberDataGridView = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -132,6 +133,7 @@ namespace Zverev_Kursova_OBD
 			((System.ComponentModel.ISupportInitialize)(this.MasterDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.FirmiDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BackPictureBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NumberDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainDataGrid
@@ -143,6 +145,7 @@ namespace Zverev_Kursova_OBD
 			this.MainDataGrid.TabIndex = 0;
 			this.MainDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDataGridCellClick);
 			this.MainDataGrid.SelectionChanged += new System.EventHandler(this.MainDataGridSelectionChanged);
+			this.MainDataGrid.DoubleClick += new System.EventHandler(this.MainDataGridDoubleClick);
 			// 
 			// RadioGroupPanel
 			// 
@@ -714,12 +717,14 @@ namespace Zverev_Kursova_OBD
 			// 
 			// PriyomButtom
 			// 
+			this.PriyomButtom.Enabled = false;
 			this.PriyomButtom.Location = new System.Drawing.Point(198, 651);
 			this.PriyomButtom.Name = "PriyomButtom";
 			this.PriyomButtom.Size = new System.Drawing.Size(99, 23);
 			this.PriyomButtom.TabIndex = 26;
 			this.PriyomButtom.Text = "Прийом(F1)";
 			this.PriyomButtom.UseVisualStyleBackColor = true;
+			this.PriyomButtom.Click += new System.EventHandler(this.PriyomButtomClick);
 			// 
 			// OKButton
 			// 
@@ -729,6 +734,7 @@ namespace Zverev_Kursova_OBD
 			this.OKButton.TabIndex = 27;
 			this.OKButton.Text = "ОК(F12)";
 			this.OKButton.UseVisualStyleBackColor = true;
+			this.OKButton.Click += new System.EventHandler(this.OKButtonClick);
 			// 
 			// PrintButton
 			// 
@@ -941,12 +947,22 @@ namespace Zverev_Kursova_OBD
 			this.GuaranteeDateTimePicker.Size = new System.Drawing.Size(131, 20);
 			this.GuaranteeDateTimePicker.TabIndex = 39;
 			// 
+			// NumberDataGridView
+			// 
+			this.NumberDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.NumberDataGridView.Location = new System.Drawing.Point(0, 709);
+			this.NumberDataGridView.Name = "NumberDataGridView";
+			this.NumberDataGridView.Size = new System.Drawing.Size(10, 10);
+			this.NumberDataGridView.TabIndex = 40;
+			this.NumberDataGridView.Visible = false;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.Controls.Add(this.NumberDataGridView);
 			this.Controls.Add(this.GuaranteeDateTimePicker);
 			this.Controls.Add(this.BackPictureBox);
 			this.Controls.Add(this.FirmiDataGridView);
@@ -1003,9 +1019,11 @@ namespace Zverev_Kursova_OBD
 			((System.ComponentModel.ISupportInitialize)(this.MasterDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.FirmiDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.BackPictureBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NumberDataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.DataGridView NumberDataGridView;
 		private System.Windows.Forms.DateTimePicker GuaranteeDateTimePicker;
 		private System.Windows.Forms.PictureBox BackPictureBox;
 		private System.Windows.Forms.DataGridView FirmiDataGridView;
