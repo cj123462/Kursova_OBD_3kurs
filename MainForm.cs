@@ -40,8 +40,6 @@ namespace Zverev_Kursova_OBD
 		void MainDataGridCellClick(object sender, DataGridViewCellEventArgs e)
 		{
 			MySQL mysql = new MySQL();
-			//int rowid=MainDataGrid.CurrentRow.Index;
-			//string str= MainDataGrid.Rows[rowid].Cells[0].Value.ToString();
 			string str= MainDataGrid.Rows[e.RowIndex].Cells[0].Value.ToString();
 			MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+str+";");
 		}

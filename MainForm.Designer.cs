@@ -61,7 +61,7 @@ namespace Zverev_Kursova_OBD
 			this.VuribModelTextBox = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.ClientInfoPanel = new System.Windows.Forms.Panel();
-			this.label14 = new System.Windows.Forms.Label();
+			this.ReadyLabel = new System.Windows.Forms.Label();
 			this.ClientInformatedTextBox = new System.Windows.Forms.TextBox();
 			this.ClientInformatedButton = new System.Windows.Forms.Button();
 			this.ClientMobileNumberTextBox = new System.Windows.Forms.TextBox();
@@ -89,6 +89,22 @@ namespace Zverev_Kursova_OBD
 			this.GuaranteeComboBox = new System.Windows.Forms.ComboBox();
 			this.label19 = new System.Windows.Forms.Label();
 			this.label18 = new System.Windows.Forms.Label();
+			this.label22 = new System.Windows.Forms.Label();
+			this.MasterComboBox = new System.Windows.Forms.ComboBox();
+			this.label23 = new System.Windows.Forms.Label();
+			this.ZapchastiCostTextBox = new System.Windows.Forms.TextBox();
+			this.label24 = new System.Windows.Forms.Label();
+			this.AllCostTextBox = new System.Windows.Forms.TextBox();
+			this.label25 = new System.Windows.Forms.Label();
+			this.GuaranteeExpireTextBox = new System.Windows.Forms.TextBox();
+			this.GuaranteeExpireComboBox = new System.Windows.Forms.ComboBox();
+			this.PriyomButtom = new System.Windows.Forms.Button();
+			this.OKButton = new System.Windows.Forms.Button();
+			this.PrintButton = new System.Windows.Forms.Button();
+			this.SearchButton = new System.Windows.Forms.Button();
+			this.VidachaButton = new System.Windows.Forms.Button();
+			this.SettingsButton = new System.Windows.Forms.Button();
+			this.CopyButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -328,7 +344,7 @@ namespace Zverev_Kursova_OBD
 			// ClientInfoPanel
 			// 
 			this.ClientInfoPanel.BackColor = System.Drawing.SystemColors.Control;
-			this.ClientInfoPanel.Controls.Add(this.label14);
+			this.ClientInfoPanel.Controls.Add(this.ReadyLabel);
 			this.ClientInfoPanel.Controls.Add(this.ClientInformatedTextBox);
 			this.ClientInfoPanel.Controls.Add(this.ClientInformatedButton);
 			this.ClientInfoPanel.Controls.Add(this.ClientMobileNumberTextBox);
@@ -346,16 +362,16 @@ namespace Zverev_Kursova_OBD
 			this.ClientInfoPanel.Size = new System.Drawing.Size(539, 144);
 			this.ClientInfoPanel.TabIndex = 13;
 			// 
-			// label14
+			// ReadyLabel
 			// 
-			this.label14.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label14.ForeColor = System.Drawing.Color.Blue;
-			this.label14.Location = new System.Drawing.Point(311, 109);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(208, 23);
-			this.label14.TabIndex = 12;
-			this.label14.Text = "Замовлення виконано!!!";
-			this.label14.Visible = false;
+			this.ReadyLabel.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ReadyLabel.ForeColor = System.Drawing.Color.Blue;
+			this.ReadyLabel.Location = new System.Drawing.Point(311, 109);
+			this.ReadyLabel.Name = "ReadyLabel";
+			this.ReadyLabel.Size = new System.Drawing.Size(208, 23);
+			this.ReadyLabel.TabIndex = 12;
+			this.ReadyLabel.Text = "Замовлення виконано!!!";
+			this.ReadyLabel.Visible = false;
 			// 
 			// ClientInformatedTextBox
 			// 
@@ -600,12 +616,171 @@ namespace Zverev_Kursova_OBD
 			this.label18.TabIndex = 16;
 			this.label18.Text = "Інформація про гарантію";
 			// 
+			// label22
+			// 
+			this.label22.BackColor = System.Drawing.SystemColors.Control;
+			this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label22.Location = new System.Drawing.Point(198, 624);
+			this.label22.Name = "label22";
+			this.label22.Size = new System.Drawing.Size(80, 24);
+			this.label22.TabIndex = 17;
+			this.label22.Text = "Майстер:";
+			this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// MasterComboBox
+			// 
+			this.MasterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.MasterComboBox.ForeColor = System.Drawing.Color.Blue;
+			this.MasterComboBox.FormattingEnabled = true;
+			this.MasterComboBox.Location = new System.Drawing.Point(284, 624);
+			this.MasterComboBox.Name = "MasterComboBox";
+			this.MasterComboBox.Size = new System.Drawing.Size(149, 24);
+			this.MasterComboBox.TabIndex = 18;
+			// 
+			// label23
+			// 
+			this.label23.BackColor = System.Drawing.SystemColors.Control;
+			this.label23.Location = new System.Drawing.Point(439, 624);
+			this.label23.Name = "label23";
+			this.label23.Size = new System.Drawing.Size(82, 24);
+			this.label23.TabIndex = 19;
+			this.label23.Text = "Запчастини:";
+			this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ZapchastiCostTextBox
+			// 
+			this.ZapchastiCostTextBox.Location = new System.Drawing.Point(527, 624);
+			this.ZapchastiCostTextBox.Name = "ZapchastiCostTextBox";
+			this.ZapchastiCostTextBox.Size = new System.Drawing.Size(84, 20);
+			this.ZapchastiCostTextBox.TabIndex = 20;
+			// 
+			// label24
+			// 
+			this.label24.BackColor = System.Drawing.SystemColors.Control;
+			this.label24.Location = new System.Drawing.Point(617, 624);
+			this.label24.Name = "label24";
+			this.label24.Size = new System.Drawing.Size(38, 24);
+			this.label24.TabIndex = 21;
+			this.label24.Text = "Сума:";
+			this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// AllCostTextBox
+			// 
+			this.AllCostTextBox.Location = new System.Drawing.Point(661, 624);
+			this.AllCostTextBox.Name = "AllCostTextBox";
+			this.AllCostTextBox.Size = new System.Drawing.Size(76, 20);
+			this.AllCostTextBox.TabIndex = 22;
+			// 
+			// label25
+			// 
+			this.label25.BackColor = System.Drawing.SystemColors.Control;
+			this.label25.Location = new System.Drawing.Point(743, 624);
+			this.label25.Name = "label25";
+			this.label25.Size = new System.Drawing.Size(79, 23);
+			this.label25.TabIndex = 23;
+			this.label25.Text = "Гарантія до:";
+			this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// GuaranteeExpireTextBox
+			// 
+			this.GuaranteeExpireTextBox.Location = new System.Drawing.Point(828, 626);
+			this.GuaranteeExpireTextBox.Name = "GuaranteeExpireTextBox";
+			this.GuaranteeExpireTextBox.Size = new System.Drawing.Size(100, 20);
+			this.GuaranteeExpireTextBox.TabIndex = 24;
+			// 
+			// GuaranteeExpireComboBox
+			// 
+			this.GuaranteeExpireComboBox.FormattingEnabled = true;
+			this.GuaranteeExpireComboBox.Location = new System.Drawing.Point(934, 627);
+			this.GuaranteeExpireComboBox.Name = "GuaranteeExpireComboBox";
+			this.GuaranteeExpireComboBox.Size = new System.Drawing.Size(127, 21);
+			this.GuaranteeExpireComboBox.TabIndex = 25;
+			// 
+			// PriyomButtom
+			// 
+			this.PriyomButtom.Location = new System.Drawing.Point(198, 651);
+			this.PriyomButtom.Name = "PriyomButtom";
+			this.PriyomButtom.Size = new System.Drawing.Size(99, 23);
+			this.PriyomButtom.TabIndex = 26;
+			this.PriyomButtom.Text = "Прийом(F1)";
+			this.PriyomButtom.UseVisualStyleBackColor = true;
+			// 
+			// OKButton
+			// 
+			this.OKButton.Location = new System.Drawing.Point(303, 651);
+			this.OKButton.Name = "OKButton";
+			this.OKButton.Size = new System.Drawing.Size(92, 23);
+			this.OKButton.TabIndex = 27;
+			this.OKButton.Text = "ОК(F12)";
+			this.OKButton.UseVisualStyleBackColor = true;
+			// 
+			// PrintButton
+			// 
+			this.PrintButton.Location = new System.Drawing.Point(401, 651);
+			this.PrintButton.Name = "PrintButton";
+			this.PrintButton.Size = new System.Drawing.Size(88, 23);
+			this.PrintButton.TabIndex = 28;
+			this.PrintButton.Text = "Печать(F9)";
+			this.PrintButton.UseVisualStyleBackColor = true;
+			// 
+			// SearchButton
+			// 
+			this.SearchButton.Location = new System.Drawing.Point(500, 651);
+			this.SearchButton.Name = "SearchButton";
+			this.SearchButton.Size = new System.Drawing.Size(111, 24);
+			this.SearchButton.TabIndex = 29;
+			this.SearchButton.Text = "Режим пошуку(F3)";
+			this.SearchButton.UseVisualStyleBackColor = true;
+			// 
+			// VidachaButton
+			// 
+			this.VidachaButton.Location = new System.Drawing.Point(617, 652);
+			this.VidachaButton.Name = "VidachaButton";
+			this.VidachaButton.Size = new System.Drawing.Size(100, 23);
+			this.VidachaButton.TabIndex = 30;
+			this.VidachaButton.Text = "Видача(F5)";
+			this.VidachaButton.UseVisualStyleBackColor = true;
+			// 
+			// SettingsButton
+			// 
+			this.SettingsButton.Location = new System.Drawing.Point(720, 652);
+			this.SettingsButton.Name = "SettingsButton";
+			this.SettingsButton.Size = new System.Drawing.Size(87, 23);
+			this.SettingsButton.TabIndex = 31;
+			this.SettingsButton.Text = "Настройки";
+			this.SettingsButton.UseVisualStyleBackColor = true;
+			// 
+			// CopyButton
+			// 
+			this.CopyButton.Location = new System.Drawing.Point(198, 680);
+			this.CopyButton.Name = "CopyButton";
+			this.CopyButton.Size = new System.Drawing.Size(99, 23);
+			this.CopyButton.TabIndex = 32;
+			this.CopyButton.Text = "Зробити копію";
+			this.CopyButton.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
-			this.ClientSize = new System.Drawing.Size(807, 660);
+			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.Controls.Add(this.CopyButton);
+			this.Controls.Add(this.SettingsButton);
+			this.Controls.Add(this.VidachaButton);
+			this.Controls.Add(this.SearchButton);
+			this.Controls.Add(this.PrintButton);
+			this.Controls.Add(this.OKButton);
+			this.Controls.Add(this.PriyomButtom);
+			this.Controls.Add(this.GuaranteeExpireComboBox);
+			this.Controls.Add(this.GuaranteeExpireTextBox);
+			this.Controls.Add(this.label25);
+			this.Controls.Add(this.AllCostTextBox);
+			this.Controls.Add(this.label24);
+			this.Controls.Add(this.ZapchastiCostTextBox);
+			this.Controls.Add(this.label23);
+			this.Controls.Add(this.MasterComboBox);
+			this.Controls.Add(this.label22);
 			this.Controls.Add(this.label18);
 			this.Controls.Add(this.GuaranteeInfoPanel);
 			this.Controls.Add(this.VuribInfoPanel);
@@ -638,6 +813,22 @@ namespace Zverev_Kursova_OBD
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button CopyButton;
+		private System.Windows.Forms.Button SettingsButton;
+		private System.Windows.Forms.Button VidachaButton;
+		private System.Windows.Forms.Button SearchButton;
+		private System.Windows.Forms.Button PrintButton;
+		private System.Windows.Forms.Button OKButton;
+		private System.Windows.Forms.Button PriyomButtom;
+		private System.Windows.Forms.ComboBox GuaranteeExpireComboBox;
+		private System.Windows.Forms.TextBox GuaranteeExpireTextBox;
+		private System.Windows.Forms.Label label25;
+		private System.Windows.Forms.TextBox AllCostTextBox;
+		private System.Windows.Forms.Label label24;
+		private System.Windows.Forms.TextBox ZapchastiCostTextBox;
+		private System.Windows.Forms.Label label23;
+		private System.Windows.Forms.ComboBox MasterComboBox;
+		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.Label label18;
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.ComboBox GuaranteeComboBox;
@@ -661,7 +852,7 @@ namespace Zverev_Kursova_OBD
 		private System.Windows.Forms.TextBox ClientMobileNumberTextBox;
 		private System.Windows.Forms.Button ClientInformatedButton;
 		private System.Windows.Forms.TextBox ClientInformatedTextBox;
-		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label ReadyLabel;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox ClientAdressTextBox;
 		private System.Windows.Forms.Label label9;
