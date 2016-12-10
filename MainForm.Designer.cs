@@ -783,6 +783,7 @@ namespace Zverev_Kursova_OBD
 			this.CopyButton.TabIndex = 32;
 			this.CopyButton.Text = "Зробити копію";
 			this.CopyButton.UseVisualStyleBackColor = true;
+			this.CopyButton.Click += new System.EventHandler(this.CopyButtonClick);
 			// 
 			// ComplectPanel
 			// 

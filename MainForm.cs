@@ -23,6 +23,11 @@ namespace Zverev_Kursova_OBD
 		bool IsItExists=true;
 		bool IsSearchModeOn=false;
 		string ZakazName="";
+		string CopyName="";
+		string CopyHomePhoneNumber="";
+		string CopyWorkPhoneNumber="";
+		string CopyMobilePhoneNumber="";
+		string CopyAdress="";
 		public MainForm()
 		{
 			InitializeComponent();
@@ -58,6 +63,7 @@ namespace Zverev_Kursova_OBD
 				}
 			}
 			catch(Exception ex){};
+			this.KeyPreview=true;
 			
 		}
 		
@@ -265,5 +271,37 @@ namespace Zverev_Kursova_OBD
 				ZapchastiCostTextBox.BackColor=c;
 				AllCostTextBox.BackColor=c;
 		}
+		
+		void CopyButtonClick(object sender, EventArgs e)
+		{
+			if(CopyButton.Text=="Зробити копію"){
+				CopyName=ClientNameTextBox.Text;
+				CopyHomePhoneNumber=ClientHomeNumberTextBox.Text;
+				CopyWorkPhoneNumber=ClientWorkNumberTextBox.Text;
+				CopyMobilePhoneNumber=ClientMobileNumberTextBox.Text;
+				CopyAdress=ClientAdressTextBox.Text;
+				CopyButton.Text="Вставити копію";
+			}
+			else{
+				ClientNameTextBox.Text=CopyName;
+				ClientHomeNumberTextBox.Text=CopyHomePhoneNumber;
+				ClientWorkNumberTextBox.Text=CopyWorkPhoneNumber;
+				ClientMobileNumberTextBox.Text=CopyMobilePhoneNumber;
+				ClientAdressTextBox.Text=CopyAdress;
+				CopyButton.Text="Зробити копію";
+			}
+		}
+	protected override bool ProcessCmdKey(ref Message msg, Keys keydata){
+		if(keydata== (Keys.F3)){
+			SearchButton.PerformClick();
+		} else if(keydata== (Keys.F1)){
+			PriyomButtom.PerformClick();
+		}else if(keydata== (Keys.F12)){
+			OKButton.PerformClick();
+		}
+		return base.ProcessCmdKey(ref msg, keydata);
+		}
+		
+
 	}
 }
