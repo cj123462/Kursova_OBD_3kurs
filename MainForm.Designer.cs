@@ -61,13 +61,39 @@ namespace Zverev_Kursova_OBD
 			this.VuribModelTextBox = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.ClientInfoPanel = new System.Windows.Forms.Panel();
-			this.label9 = new System.Windows.Forms.Label();
-			this.ClientNameTextBox = new System.Windows.Forms.TextBox();
-			this.label10 = new System.Windows.Forms.Label();
+			this.label14 = new System.Windows.Forms.Label();
+			this.ClientInformatedTextBox = new System.Windows.Forms.TextBox();
+			this.ClientInformatedButton = new System.Windows.Forms.Button();
+			this.ClientMobileNumberTextBox = new System.Windows.Forms.TextBox();
+			this.label13 = new System.Windows.Forms.Label();
+			this.ClientWorkNumberTextBox = new System.Windows.Forms.TextBox();
+			this.label12 = new System.Windows.Forms.Label();
+			this.ClientHomeNumberTextBox = new System.Windows.Forms.TextBox();
+			this.label11 = new System.Windows.Forms.Label();
 			this.ClientAdressTextBox = new System.Windows.Forms.TextBox();
+			this.label10 = new System.Windows.Forms.Label();
+			this.ClientNameTextBox = new System.Windows.Forms.TextBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.VuribInfoPanel = new System.Windows.Forms.Panel();
+			this.PrimitkiTextBox = new System.Windows.Forms.TextBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.MadeWorkRichTextBox = new System.Windows.Forms.RichTextBox();
+			this.label16 = new System.Windows.Forms.Label();
+			this.SkargiTextBox = new System.Windows.Forms.TextBox();
+			this.label15 = new System.Windows.Forms.Label();
+			this.GuaranteeInfoPanel = new System.Windows.Forms.Panel();
+			this.ExtraInfoRichTextBox = new System.Windows.Forms.RichTextBox();
+			this.label21 = new System.Windows.Forms.Label();
+			this.SerialNumberTextBox = new System.Windows.Forms.TextBox();
+			this.label20 = new System.Windows.Forms.Label();
+			this.GuaranteeComboBox = new System.Windows.Forms.ComboBox();
+			this.label19 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
+			this.VuribInfoPanel.SuspendLayout();
+			this.GuaranteeInfoPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// MainDataGrid
@@ -77,7 +103,7 @@ namespace Zverev_Kursova_OBD
 			this.MainDataGrid.Name = "MainDataGrid";
 			this.MainDataGrid.Size = new System.Drawing.Size(180, 636);
 			this.MainDataGrid.TabIndex = 0;
-			this.MainDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1CellContentClick);
+			this.MainDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDataGridCellClick);
 			// 
 			// RadioGroupPanel
 			// 
@@ -263,9 +289,11 @@ namespace Zverev_Kursova_OBD
 			// 
 			// VirybNameTextBox
 			// 
+			this.VirybNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.VirybNameTextBox.ForeColor = System.Drawing.Color.Blue;
 			this.VirybNameTextBox.Location = new System.Drawing.Point(291, 175);
 			this.VirybNameTextBox.Name = "VirybNameTextBox";
-			this.VirybNameTextBox.Size = new System.Drawing.Size(174, 20);
+			this.VirybNameTextBox.Size = new System.Drawing.Size(174, 22);
 			this.VirybNameTextBox.TabIndex = 9;
 			// 
 			// label7
@@ -281,9 +309,11 @@ namespace Zverev_Kursova_OBD
 			// 
 			// VuribModelTextBox
 			// 
+			this.VuribModelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.VuribModelTextBox.ForeColor = System.Drawing.Color.Blue;
 			this.VuribModelTextBox.Location = new System.Drawing.Point(556, 174);
 			this.VuribModelTextBox.Name = "VuribModelTextBox";
-			this.VuribModelTextBox.Size = new System.Drawing.Size(181, 20);
+			this.VuribModelTextBox.Size = new System.Drawing.Size(181, 22);
 			this.VuribModelTextBox.TabIndex = 11;
 			// 
 			// label8
@@ -298,31 +328,108 @@ namespace Zverev_Kursova_OBD
 			// ClientInfoPanel
 			// 
 			this.ClientInfoPanel.BackColor = System.Drawing.SystemColors.Control;
+			this.ClientInfoPanel.Controls.Add(this.label14);
+			this.ClientInfoPanel.Controls.Add(this.ClientInformatedTextBox);
+			this.ClientInfoPanel.Controls.Add(this.ClientInformatedButton);
+			this.ClientInfoPanel.Controls.Add(this.ClientMobileNumberTextBox);
+			this.ClientInfoPanel.Controls.Add(this.label13);
+			this.ClientInfoPanel.Controls.Add(this.ClientWorkNumberTextBox);
+			this.ClientInfoPanel.Controls.Add(this.label12);
+			this.ClientInfoPanel.Controls.Add(this.ClientHomeNumberTextBox);
+			this.ClientInfoPanel.Controls.Add(this.label11);
 			this.ClientInfoPanel.Controls.Add(this.ClientAdressTextBox);
 			this.ClientInfoPanel.Controls.Add(this.label10);
 			this.ClientInfoPanel.Controls.Add(this.ClientNameTextBox);
 			this.ClientInfoPanel.Controls.Add(this.label9);
 			this.ClientInfoPanel.Location = new System.Drawing.Point(198, 219);
 			this.ClientInfoPanel.Name = "ClientInfoPanel";
-			this.ClientInfoPanel.Size = new System.Drawing.Size(539, 139);
+			this.ClientInfoPanel.Size = new System.Drawing.Size(539, 144);
 			this.ClientInfoPanel.TabIndex = 13;
 			// 
-			// label9
+			// label14
 			// 
-			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label9.Location = new System.Drawing.Point(3, 7);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(77, 23);
-			this.label9.TabIndex = 0;
-			this.label9.Text = "Власник:";
-			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label14.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label14.ForeColor = System.Drawing.Color.Blue;
+			this.label14.Location = new System.Drawing.Point(311, 109);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(208, 23);
+			this.label14.TabIndex = 12;
+			this.label14.Text = "Замовлення виконано!!!";
+			this.label14.Visible = false;
 			// 
-			// ClientNameTextBox
+			// ClientInformatedTextBox
 			// 
-			this.ClientNameTextBox.Location = new System.Drawing.Point(86, 10);
-			this.ClientNameTextBox.Name = "ClientNameTextBox";
-			this.ClientNameTextBox.Size = new System.Drawing.Size(450, 20);
-			this.ClientNameTextBox.TabIndex = 1;
+			this.ClientInformatedTextBox.Location = new System.Drawing.Point(419, 73);
+			this.ClientInformatedTextBox.Name = "ClientInformatedTextBox";
+			this.ClientInformatedTextBox.Size = new System.Drawing.Size(100, 20);
+			this.ClientInformatedTextBox.TabIndex = 11;
+			// 
+			// ClientInformatedButton
+			// 
+			this.ClientInformatedButton.Location = new System.Drawing.Point(311, 71);
+			this.ClientInformatedButton.Name = "ClientInformatedButton";
+			this.ClientInformatedButton.Size = new System.Drawing.Size(102, 23);
+			this.ClientInformatedButton.TabIndex = 10;
+			this.ClientInformatedButton.Text = "Повідомлено";
+			this.ClientInformatedButton.UseVisualStyleBackColor = true;
+			// 
+			// ClientMobileNumberTextBox
+			// 
+			this.ClientMobileNumberTextBox.Location = new System.Drawing.Point(110, 112);
+			this.ClientMobileNumberTextBox.Name = "ClientMobileNumberTextBox";
+			this.ClientMobileNumberTextBox.Size = new System.Drawing.Size(181, 20);
+			this.ClientMobileNumberTextBox.TabIndex = 9;
+			// 
+			// label13
+			// 
+			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label13.Location = new System.Drawing.Point(7, 109);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(92, 23);
+			this.label13.TabIndex = 8;
+			this.label13.Text = "Мобільний:";
+			this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ClientWorkNumberTextBox
+			// 
+			this.ClientWorkNumberTextBox.Location = new System.Drawing.Point(110, 84);
+			this.ClientWorkNumberTextBox.Name = "ClientWorkNumberTextBox";
+			this.ClientWorkNumberTextBox.Size = new System.Drawing.Size(181, 20);
+			this.ClientWorkNumberTextBox.TabIndex = 7;
+			// 
+			// label12
+			// 
+			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label12.Location = new System.Drawing.Point(26, 84);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(73, 23);
+			this.label12.TabIndex = 6;
+			this.label12.Text = "Робочі: ";
+			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ClientHomeNumberTextBox
+			// 
+			this.ClientHomeNumberTextBox.Location = new System.Drawing.Point(110, 59);
+			this.ClientHomeNumberTextBox.Name = "ClientHomeNumberTextBox";
+			this.ClientHomeNumberTextBox.Size = new System.Drawing.Size(181, 20);
+			this.ClientHomeNumberTextBox.TabIndex = 5;
+			// 
+			// label11
+			// 
+			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label11.Location = new System.Drawing.Point(26, 61);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(73, 23);
+			this.label11.TabIndex = 4;
+			this.label11.Text = "Домашні:";
+			this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ClientAdressTextBox
+			// 
+			this.ClientAdressTextBox.Location = new System.Drawing.Point(86, 36);
+			this.ClientAdressTextBox.Name = "ClientAdressTextBox";
+			this.ClientAdressTextBox.Size = new System.Drawing.Size(450, 20);
+			this.ClientAdressTextBox.TabIndex = 3;
 			// 
 			// label10
 			// 
@@ -334,12 +441,164 @@ namespace Zverev_Kursova_OBD
 			this.label10.Text = "Адреса:";
 			this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// ClientAdressTextBox
+			// ClientNameTextBox
 			// 
-			this.ClientAdressTextBox.Location = new System.Drawing.Point(86, 36);
-			this.ClientAdressTextBox.Name = "ClientAdressTextBox";
-			this.ClientAdressTextBox.Size = new System.Drawing.Size(450, 20);
-			this.ClientAdressTextBox.TabIndex = 3;
+			this.ClientNameTextBox.Location = new System.Drawing.Point(86, 10);
+			this.ClientNameTextBox.Name = "ClientNameTextBox";
+			this.ClientNameTextBox.Size = new System.Drawing.Size(450, 20);
+			this.ClientNameTextBox.TabIndex = 1;
+			// 
+			// label9
+			// 
+			this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label9.Location = new System.Drawing.Point(3, 7);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(77, 23);
+			this.label9.TabIndex = 0;
+			this.label9.Text = "Власник:";
+			this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// VuribInfoPanel
+			// 
+			this.VuribInfoPanel.BackColor = System.Drawing.SystemColors.Control;
+			this.VuribInfoPanel.Controls.Add(this.PrimitkiTextBox);
+			this.VuribInfoPanel.Controls.Add(this.label17);
+			this.VuribInfoPanel.Controls.Add(this.MadeWorkRichTextBox);
+			this.VuribInfoPanel.Controls.Add(this.label16);
+			this.VuribInfoPanel.Controls.Add(this.SkargiTextBox);
+			this.VuribInfoPanel.Controls.Add(this.label15);
+			this.VuribInfoPanel.Location = new System.Drawing.Point(198, 369);
+			this.VuribInfoPanel.Name = "VuribInfoPanel";
+			this.VuribInfoPanel.Size = new System.Drawing.Size(597, 127);
+			this.VuribInfoPanel.TabIndex = 14;
+			// 
+			// PrimitkiTextBox
+			// 
+			this.PrimitkiTextBox.Location = new System.Drawing.Point(110, 96);
+			this.PrimitkiTextBox.Name = "PrimitkiTextBox";
+			this.PrimitkiTextBox.Size = new System.Drawing.Size(484, 20);
+			this.PrimitkiTextBox.TabIndex = 5;
+			// 
+			// label17
+			// 
+			this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label17.Location = new System.Drawing.Point(12, 93);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(95, 23);
+			this.label17.TabIndex = 4;
+			this.label17.Text = "Примітки:";
+			this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// MadeWorkRichTextBox
+			// 
+			this.MadeWorkRichTextBox.Location = new System.Drawing.Point(110, 40);
+			this.MadeWorkRichTextBox.Name = "MadeWorkRichTextBox";
+			this.MadeWorkRichTextBox.Size = new System.Drawing.Size(484, 50);
+			this.MadeWorkRichTextBox.TabIndex = 3;
+			this.MadeWorkRichTextBox.Text = "";
+			// 
+			// label16
+			// 
+			this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label16.Location = new System.Drawing.Point(7, 35);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(100, 38);
+			this.label16.TabIndex = 2;
+			this.label16.Text = "Виконана робота:";
+			this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// SkargiTextBox
+			// 
+			this.SkargiTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.SkargiTextBox.ForeColor = System.Drawing.Color.Blue;
+			this.SkargiTextBox.Location = new System.Drawing.Point(110, 14);
+			this.SkargiTextBox.Name = "SkargiTextBox";
+			this.SkargiTextBox.Size = new System.Drawing.Size(484, 22);
+			this.SkargiTextBox.TabIndex = 1;
+			// 
+			// label15
+			// 
+			this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label15.Location = new System.Drawing.Point(7, 12);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(100, 23);
+			this.label15.TabIndex = 0;
+			this.label15.Text = "Скарги:";
+			this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// GuaranteeInfoPanel
+			// 
+			this.GuaranteeInfoPanel.BackColor = System.Drawing.SystemColors.Control;
+			this.GuaranteeInfoPanel.Controls.Add(this.ExtraInfoRichTextBox);
+			this.GuaranteeInfoPanel.Controls.Add(this.label21);
+			this.GuaranteeInfoPanel.Controls.Add(this.SerialNumberTextBox);
+			this.GuaranteeInfoPanel.Controls.Add(this.label20);
+			this.GuaranteeInfoPanel.Controls.Add(this.GuaranteeComboBox);
+			this.GuaranteeInfoPanel.Controls.Add(this.label19);
+			this.GuaranteeInfoPanel.Location = new System.Drawing.Point(198, 516);
+			this.GuaranteeInfoPanel.Name = "GuaranteeInfoPanel";
+			this.GuaranteeInfoPanel.Size = new System.Drawing.Size(597, 90);
+			this.GuaranteeInfoPanel.TabIndex = 15;
+			// 
+			// ExtraInfoRichTextBox
+			// 
+			this.ExtraInfoRichTextBox.Location = new System.Drawing.Point(107, 42);
+			this.ExtraInfoRichTextBox.Name = "ExtraInfoRichTextBox";
+			this.ExtraInfoRichTextBox.Size = new System.Drawing.Size(487, 40);
+			this.ExtraInfoRichTextBox.TabIndex = 21;
+			this.ExtraInfoRichTextBox.Text = "";
+			// 
+			// label21
+			// 
+			this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label21.Location = new System.Drawing.Point(12, 42);
+			this.label21.Name = "label21";
+			this.label21.Size = new System.Drawing.Size(95, 40);
+			this.label21.TabIndex = 20;
+			this.label21.Text = "Додаткові відомості:";
+			this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// SerialNumberTextBox
+			// 
+			this.SerialNumberTextBox.Location = new System.Drawing.Point(408, 9);
+			this.SerialNumberTextBox.Name = "SerialNumberTextBox";
+			this.SerialNumberTextBox.Size = new System.Drawing.Size(186, 20);
+			this.SerialNumberTextBox.TabIndex = 19;
+			// 
+			// label20
+			// 
+			this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label20.Location = new System.Drawing.Point(302, 13);
+			this.label20.Name = "label20";
+			this.label20.Size = new System.Drawing.Size(111, 17);
+			this.label20.TabIndex = 18;
+			this.label20.Text = "Свідоцтво №";
+			// 
+			// GuaranteeComboBox
+			// 
+			this.GuaranteeComboBox.FormattingEnabled = true;
+			this.GuaranteeComboBox.Location = new System.Drawing.Point(107, 9);
+			this.GuaranteeComboBox.Name = "GuaranteeComboBox";
+			this.GuaranteeComboBox.Size = new System.Drawing.Size(184, 21);
+			this.GuaranteeComboBox.TabIndex = 17;
+			// 
+			// label19
+			// 
+			this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label19.Location = new System.Drawing.Point(7, 9);
+			this.label19.Name = "label19";
+			this.label19.Size = new System.Drawing.Size(100, 23);
+			this.label19.TabIndex = 0;
+			this.label19.Text = "Гарантія:";
+			this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label18
+			// 
+			this.label18.Location = new System.Drawing.Point(201, 499);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(142, 14);
+			this.label18.TabIndex = 16;
+			this.label18.Text = "Інформація про гарантію";
 			// 
 			// MainForm
 			// 
@@ -347,6 +606,9 @@ namespace Zverev_Kursova_OBD
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(807, 660);
+			this.Controls.Add(this.label18);
+			this.Controls.Add(this.GuaranteeInfoPanel);
+			this.Controls.Add(this.VuribInfoPanel);
 			this.Controls.Add(this.ClientInfoPanel);
 			this.Controls.Add(this.label8);
 			this.Controls.Add(this.VuribModelTextBox);
@@ -369,9 +631,37 @@ namespace Zverev_Kursova_OBD
 			this.RadioGroupPanel.ResumeLayout(false);
 			this.ClientInfoPanel.ResumeLayout(false);
 			this.ClientInfoPanel.PerformLayout();
+			this.VuribInfoPanel.ResumeLayout(false);
+			this.VuribInfoPanel.PerformLayout();
+			this.GuaranteeInfoPanel.ResumeLayout(false);
+			this.GuaranteeInfoPanel.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.Label label19;
+		private System.Windows.Forms.ComboBox GuaranteeComboBox;
+		private System.Windows.Forms.Label label20;
+		private System.Windows.Forms.TextBox SerialNumberTextBox;
+		private System.Windows.Forms.Label label21;
+		private System.Windows.Forms.RichTextBox ExtraInfoRichTextBox;
+		private System.Windows.Forms.Panel GuaranteeInfoPanel;
+		private System.Windows.Forms.TextBox PrimitkiTextBox;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.TextBox SkargiTextBox;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.RichTextBox MadeWorkRichTextBox;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.Panel VuribInfoPanel;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.TextBox ClientHomeNumberTextBox;
+		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.TextBox ClientWorkNumberTextBox;
+		private System.Windows.Forms.Label label13;
+		private System.Windows.Forms.TextBox ClientMobileNumberTextBox;
+		private System.Windows.Forms.Button ClientInformatedButton;
+		private System.Windows.Forms.TextBox ClientInformatedTextBox;
+		private System.Windows.Forms.Label label14;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox ClientAdressTextBox;
 		private System.Windows.Forms.Label label9;
