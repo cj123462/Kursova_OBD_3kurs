@@ -105,11 +105,26 @@ namespace Zverev_Kursova_OBD
 			this.VidachaButton = new System.Windows.Forms.Button();
 			this.SettingsButton = new System.Windows.Forms.Button();
 			this.CopyButton = new System.Windows.Forms.Button();
+			this.ComplectPanel = new System.Windows.Forms.Panel();
+			this.ZP2TextBox = new System.Windows.Forms.TextBox();
+			this.label28 = new System.Windows.Forms.Label();
+			this.ZP1TextBox = new System.Windows.Forms.TextBox();
+			this.label27 = new System.Windows.Forms.Label();
+			this.WiresCheckBox = new System.Windows.Forms.CheckBox();
+			this.RemoteCheckBox = new System.Windows.Forms.CheckBox();
+			this.GarTalonCheckBox = new System.Windows.Forms.CheckBox();
+			this.AcumulatorTextBox = new System.Windows.Forms.TextBox();
+			this.label26 = new System.Windows.Forms.Label();
+			this.TerminalTextBox = new System.Windows.Forms.TextBox();
+			this.label14 = new System.Windows.Forms.Label();
+			this.GuaranteePrintButton = new System.Windows.Forms.Button();
+			this.ExitButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
 			this.VuribInfoPanel.SuspendLayout();
 			this.GuaranteeInfoPanel.SuspendLayout();
+			this.ComplectPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// MainDataGrid
@@ -516,7 +531,7 @@ namespace Zverev_Kursova_OBD
 			// label16
 			// 
 			this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label16.Location = new System.Drawing.Point(7, 35);
+			this.label16.Location = new System.Drawing.Point(7, 40);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(100, 38);
 			this.label16.TabIndex = 2;
@@ -683,7 +698,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// GuaranteeExpireTextBox
 			// 
-			this.GuaranteeExpireTextBox.Location = new System.Drawing.Point(828, 626);
+			this.GuaranteeExpireTextBox.Location = new System.Drawing.Point(828, 623);
 			this.GuaranteeExpireTextBox.Name = "GuaranteeExpireTextBox";
 			this.GuaranteeExpireTextBox.Size = new System.Drawing.Size(100, 20);
 			this.GuaranteeExpireTextBox.TabIndex = 24;
@@ -691,7 +706,7 @@ namespace Zverev_Kursova_OBD
 			// GuaranteeExpireComboBox
 			// 
 			this.GuaranteeExpireComboBox.FormattingEnabled = true;
-			this.GuaranteeExpireComboBox.Location = new System.Drawing.Point(934, 627);
+			this.GuaranteeExpireComboBox.Location = new System.Drawing.Point(934, 623);
 			this.GuaranteeExpireComboBox.Name = "GuaranteeExpireComboBox";
 			this.GuaranteeExpireComboBox.Size = new System.Drawing.Size(127, 21);
 			this.GuaranteeExpireComboBox.TabIndex = 25;
@@ -759,12 +774,143 @@ namespace Zverev_Kursova_OBD
 			this.CopyButton.Text = "Зробити копію";
 			this.CopyButton.UseVisualStyleBackColor = true;
 			// 
+			// ComplectPanel
+			// 
+			this.ComplectPanel.BackColor = System.Drawing.SystemColors.Control;
+			this.ComplectPanel.Controls.Add(this.ZP2TextBox);
+			this.ComplectPanel.Controls.Add(this.label28);
+			this.ComplectPanel.Controls.Add(this.ZP1TextBox);
+			this.ComplectPanel.Controls.Add(this.label27);
+			this.ComplectPanel.Controls.Add(this.WiresCheckBox);
+			this.ComplectPanel.Controls.Add(this.RemoteCheckBox);
+			this.ComplectPanel.Controls.Add(this.GarTalonCheckBox);
+			this.ComplectPanel.Controls.Add(this.AcumulatorTextBox);
+			this.ComplectPanel.Controls.Add(this.label26);
+			this.ComplectPanel.Controls.Add(this.TerminalTextBox);
+			this.ComplectPanel.Controls.Add(this.label14);
+			this.ComplectPanel.Location = new System.Drawing.Point(743, 149);
+			this.ComplectPanel.Name = "ComplectPanel";
+			this.ComplectPanel.Size = new System.Drawing.Size(318, 149);
+			this.ComplectPanel.TabIndex = 33;
+			// 
+			// ZP2TextBox
+			// 
+			this.ZP2TextBox.Location = new System.Drawing.Point(147, 79);
+			this.ZP2TextBox.Name = "ZP2TextBox";
+			this.ZP2TextBox.Size = new System.Drawing.Size(168, 20);
+			this.ZP2TextBox.TabIndex = 10;
+			// 
+			// label28
+			// 
+			this.label28.Location = new System.Drawing.Point(3, 77);
+			this.label28.Name = "label28";
+			this.label28.Size = new System.Drawing.Size(138, 23);
+			this.label28.TabIndex = 9;
+			this.label28.Text = "ЗП від прикурювача №";
+			this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// ZP1TextBox
+			// 
+			this.ZP1TextBox.Location = new System.Drawing.Point(147, 54);
+			this.ZP1TextBox.Name = "ZP1TextBox";
+			this.ZP1TextBox.Size = new System.Drawing.Size(168, 20);
+			this.ZP1TextBox.TabIndex = 8;
+			// 
+			// label27
+			// 
+			this.label27.Location = new System.Drawing.Point(3, 51);
+			this.label27.Name = "label27";
+			this.label27.Size = new System.Drawing.Size(138, 23);
+			this.label27.TabIndex = 7;
+			this.label27.Text = "ЗП від електромережі №";
+			this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// WiresCheckBox
+			// 
+			this.WiresCheckBox.Location = new System.Drawing.Point(228, 103);
+			this.WiresCheckBox.Name = "WiresCheckBox";
+			this.WiresCheckBox.Size = new System.Drawing.Size(87, 26);
+			this.WiresCheckBox.TabIndex = 6;
+			this.WiresCheckBox.Text = "Шнури";
+			this.WiresCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// RemoteCheckBox
+			// 
+			this.RemoteCheckBox.Location = new System.Drawing.Point(125, 106);
+			this.RemoteCheckBox.Name = "RemoteCheckBox";
+			this.RemoteCheckBox.Size = new System.Drawing.Size(60, 24);
+			this.RemoteCheckBox.TabIndex = 5;
+			this.RemoteCheckBox.Text = "Пульт";
+			this.RemoteCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// GarTalonCheckBox
+			// 
+			this.GarTalonCheckBox.Location = new System.Drawing.Point(20, 106);
+			this.GarTalonCheckBox.Name = "GarTalonCheckBox";
+			this.GarTalonCheckBox.Size = new System.Drawing.Size(83, 21);
+			this.GarTalonCheckBox.TabIndex = 4;
+			this.GarTalonCheckBox.Text = "Гар. талон";
+			this.GarTalonCheckBox.UseVisualStyleBackColor = true;
+			// 
+			// AcumulatorTextBox
+			// 
+			this.AcumulatorTextBox.Location = new System.Drawing.Point(85, 28);
+			this.AcumulatorTextBox.Name = "AcumulatorTextBox";
+			this.AcumulatorTextBox.Size = new System.Drawing.Size(230, 20);
+			this.AcumulatorTextBox.TabIndex = 3;
+			// 
+			// label26
+			// 
+			this.label26.Location = new System.Drawing.Point(3, 28);
+			this.label26.Name = "label26";
+			this.label26.Size = new System.Drawing.Size(83, 18);
+			this.label26.TabIndex = 2;
+			this.label26.Text = "Акумулятор №";
+			this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// TerminalTextBox
+			// 
+			this.TerminalTextBox.Location = new System.Drawing.Point(85, 4);
+			this.TerminalTextBox.Name = "TerminalTextBox";
+			this.TerminalTextBox.Size = new System.Drawing.Size(230, 20);
+			this.TerminalTextBox.TabIndex = 1;
+			// 
+			// label14
+			// 
+			this.label14.Location = new System.Drawing.Point(3, 4);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(76, 16);
+			this.label14.TabIndex = 0;
+			this.label14.Text = "Термінал №";
+			this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// GuaranteePrintButton
+			// 
+			this.GuaranteePrintButton.Location = new System.Drawing.Point(303, 680);
+			this.GuaranteePrintButton.Name = "GuaranteePrintButton";
+			this.GuaranteePrintButton.Size = new System.Drawing.Size(123, 23);
+			this.GuaranteePrintButton.TabIndex = 34;
+			this.GuaranteePrintButton.Text = "Гарантійний талон";
+			this.GuaranteePrintButton.UseVisualStyleBackColor = true;
+			// 
+			// ExitButton
+			// 
+			this.ExitButton.Location = new System.Drawing.Point(432, 680);
+			this.ExitButton.Name = "ExitButton";
+			this.ExitButton.Size = new System.Drawing.Size(75, 23);
+			this.ExitButton.TabIndex = 35;
+			this.ExitButton.Text = "Вихід";
+			this.ExitButton.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.Controls.Add(this.ExitButton);
+			this.Controls.Add(this.GuaranteePrintButton);
+			this.Controls.Add(this.ComplectPanel);
 			this.Controls.Add(this.CopyButton);
 			this.Controls.Add(this.SettingsButton);
 			this.Controls.Add(this.VidachaButton);
@@ -810,9 +956,25 @@ namespace Zverev_Kursova_OBD
 			this.VuribInfoPanel.PerformLayout();
 			this.GuaranteeInfoPanel.ResumeLayout(false);
 			this.GuaranteeInfoPanel.PerformLayout();
+			this.ComplectPanel.ResumeLayout(false);
+			this.ComplectPanel.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button ExitButton;
+		private System.Windows.Forms.Button GuaranteePrintButton;
+		private System.Windows.Forms.Label label27;
+		private System.Windows.Forms.TextBox ZP1TextBox;
+		private System.Windows.Forms.Label label28;
+		private System.Windows.Forms.TextBox ZP2TextBox;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.TextBox TerminalTextBox;
+		private System.Windows.Forms.Label label26;
+		private System.Windows.Forms.TextBox AcumulatorTextBox;
+		private System.Windows.Forms.CheckBox GarTalonCheckBox;
+		private System.Windows.Forms.CheckBox RemoteCheckBox;
+		private System.Windows.Forms.CheckBox WiresCheckBox;
+		private System.Windows.Forms.Panel ComplectPanel;
 		private System.Windows.Forms.Button CopyButton;
 		private System.Windows.Forms.Button SettingsButton;
 		private System.Windows.Forms.Button VidachaButton;
