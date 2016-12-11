@@ -112,6 +112,8 @@ namespace Zverev_Kursova_OBD
 				MasterComboBox.Text=MainDataGrid.Rows[rowid].Cells[14].Value.ToString();
 				ZapchastiCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[15].Value.ToString();
 				AllCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[16].Value.ToString();
+				string vidano=MainDataGrid.Rows[rowid].Cells[17].Value.ToString();
+				VidanoTextBox.Text=vidano.Substring(0,10);
 				DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates "+
 				 "where virib_id="+Int32.Parse(NumberTextBox.Text)+";");
 				string prijom = DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
@@ -119,11 +121,9 @@ namespace Zverev_Kursova_OBD
 				if(DateTimeDataGridView.Rows[0].Cells[2].Value.ToString()!=""){
 				string info =DateTimeDataGridView.Rows[0].Cells[2].Value.ToString();
 				ClientInformatedTextBox.Text=info.Substring(0,10);
+				
 				}
-				if(DateTimeDataGridView.Rows[0].Cells[3].Value.ToString()!=""){
-					string vidano=DateTimeDataGridView.Rows[0].Cells[3].Value.ToString();
-					VidanoTextBox.Text=vidano.Substring(0,10);
-				}
+				
 				if(AllCostTextBox.Text!="0" && AllCostTextBox.Text!=""){ 
 					VidachaButton.Enabled=true;
 					ReadyLabel.Visible=true;
@@ -480,7 +480,7 @@ namespace Zverev_Kursova_OBD
 					if(str!="firmi" && str!="masters" && str!="vurib")
 						tablenames[i]=str;
 					}
-				querry.Append("select * from( (");
+				if(findnum!=""){ querry.Append("select * from( (");
 					for (int i = 0; i < rowcount; i++) {
 						if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
 						if(i < rowcount)
@@ -493,9 +493,30 @@ namespace Zverev_Kursova_OBD
 					if(i<rowcount-1) querry.Append( " union all ( ");
 				}
 			}
-				if(findnum!=""){
+				
 					querry.Append(") as t where virib_id="+findnum+";");
-			} //else if()
+				} 
+					
+					else if(VidanoTextBox.Text!=""){
+					string s=VidanoTextBox.Text;
+					StringBuilder s2= new StringBuilder();
+					s2.Append(s.Substring(6,4));
+					s2.Append("-");
+					s2.Append(s.Substring(3,2));
+					s2.Append("-");
+					s2.Append(s.Substring(0,2));
+					for (int i = 0; i < rowcount; i++) {
+						if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
+							if(i < rowcount){
+						querry.Append("select *  from "+tablenames[i]+" where " +
+								              "vidacha_date='"+s2.ToString()+"'");}
+						if(i<rowcount-1) querry.Append( " union all ");
+				
+						}
+						
+					}
+						querry.Append(";");
+					}
 				
 			try{
 			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
@@ -508,16 +529,17 @@ namespace Zverev_Kursova_OBD
 			SetDataGridValues();
 			ClearAllValues();
 			SetAllValues();
+			}
 			
-		}
 		
 		void PrintButtonClick(object sender, EventArgs e)
 		{
 			MySQL mysql = new MySQL();
 			MainDataGrid.DataSource=mysql.exWithResult(@"select * from телевизоры where Vidacha_date='2016-12-11'
-union all
-select * from стиралки where Vidacha_date='2016-12-11';");
+			union all
+			select * from стиралки where Vidacha_date='2016-12-11';");
 			IsInTable=true;
+			SetAllValues();
 		}
 	}
 }
