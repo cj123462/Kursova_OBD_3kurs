@@ -39,13 +39,6 @@ namespace Zverev_Kursova_OBD
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.MainDataGrid = new System.Windows.Forms.DataGridView();
 			this.RadioGroupPanel = new System.Windows.Forms.Panel();
-			this.SecondDateComboBox = new System.Windows.Forms.ComboBox();
-			this.FirstDateComboBox = new System.Windows.Forms.ComboBox();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.UseDateCheckBox = new System.Windows.Forms.CheckBox();
-			this.GuarranteeRadioButton = new System.Windows.Forms.RadioButton();
-			this.PovtorRadioButton = new System.Windows.Forms.RadioButton();
 			this.MadeRadioButton = new System.Windows.Forms.RadioButton();
 			this.VidaniRadioButton = new System.Windows.Forms.RadioButton();
 			this.InRemontRadioButton = new System.Windows.Forms.RadioButton();
@@ -156,102 +149,36 @@ namespace Zverev_Kursova_OBD
 			// RadioGroupPanel
 			// 
 			this.RadioGroupPanel.BackColor = System.Drawing.SystemColors.Control;
-			this.RadioGroupPanel.Controls.Add(this.SecondDateComboBox);
-			this.RadioGroupPanel.Controls.Add(this.FirstDateComboBox);
-			this.RadioGroupPanel.Controls.Add(this.label2);
-			this.RadioGroupPanel.Controls.Add(this.label1);
-			this.RadioGroupPanel.Controls.Add(this.UseDateCheckBox);
-			this.RadioGroupPanel.Controls.Add(this.GuarranteeRadioButton);
-			this.RadioGroupPanel.Controls.Add(this.PovtorRadioButton);
 			this.RadioGroupPanel.Controls.Add(this.MadeRadioButton);
 			this.RadioGroupPanel.Controls.Add(this.VidaniRadioButton);
 			this.RadioGroupPanel.Controls.Add(this.InRemontRadioButton);
 			this.RadioGroupPanel.Controls.Add(this.AllRadioButton);
 			this.RadioGroupPanel.Location = new System.Drawing.Point(198, 12);
 			this.RadioGroupPanel.Name = "RadioGroupPanel";
-			this.RadioGroupPanel.Size = new System.Drawing.Size(413, 124);
+			this.RadioGroupPanel.Size = new System.Drawing.Size(165, 124);
 			this.RadioGroupPanel.TabIndex = 1;
-			// 
-			// SecondDateComboBox
-			// 
-			this.SecondDateComboBox.FormattingEnabled = true;
-			this.SecondDateComboBox.Location = new System.Drawing.Point(234, 70);
-			this.SecondDateComboBox.Name = "SecondDateComboBox";
-			this.SecondDateComboBox.Size = new System.Drawing.Size(121, 21);
-			this.SecondDateComboBox.TabIndex = 10;
-			// 
-			// FirstDateComboBox
-			// 
-			this.FirstDateComboBox.FormattingEnabled = true;
-			this.FirstDateComboBox.Location = new System.Drawing.Point(234, 41);
-			this.FirstDateComboBox.Name = "FirstDateComboBox";
-			this.FirstDateComboBox.Size = new System.Drawing.Size(121, 21);
-			this.FirstDateComboBox.TabIndex = 9;
-			// 
-			// label2
-			// 
-			this.label2.Location = new System.Drawing.Point(198, 73);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(30, 23);
-			this.label2.TabIndex = 8;
-			this.label2.Text = "До:";
-			// 
-			// label1
-			// 
-			this.label1.Location = new System.Drawing.Point(198, 44);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(30, 23);
-			this.label1.TabIndex = 7;
-			this.label1.Text = "З:";
-			// 
-			// UseDateCheckBox
-			// 
-			this.UseDateCheckBox.Location = new System.Drawing.Point(203, 4);
-			this.UseDateCheckBox.Name = "UseDateCheckBox";
-			this.UseDateCheckBox.Size = new System.Drawing.Size(138, 24);
-			this.UseDateCheckBox.TabIndex = 6;
-			this.UseDateCheckBox.Text = "Враховувати дату";
-			this.UseDateCheckBox.UseVisualStyleBackColor = true;
-			// 
-			// GuarranteeRadioButton
-			// 
-			this.GuarranteeRadioButton.Location = new System.Drawing.Point(93, 33);
-			this.GuarranteeRadioButton.Name = "GuarranteeRadioButton";
-			this.GuarranteeRadioButton.Size = new System.Drawing.Size(104, 24);
-			this.GuarranteeRadioButton.TabIndex = 5;
-			this.GuarranteeRadioButton.TabStop = true;
-			this.GuarranteeRadioButton.Text = "Гарантійні";
-			this.GuarranteeRadioButton.UseVisualStyleBackColor = true;
-			// 
-			// PovtorRadioButton
-			// 
-			this.PovtorRadioButton.Location = new System.Drawing.Point(93, 3);
-			this.PovtorRadioButton.Name = "PovtorRadioButton";
-			this.PovtorRadioButton.Size = new System.Drawing.Size(104, 24);
-			this.PovtorRadioButton.TabIndex = 4;
-			this.PovtorRadioButton.TabStop = true;
-			this.PovtorRadioButton.Text = "Повторні";
-			this.PovtorRadioButton.UseVisualStyleBackColor = true;
 			// 
 			// MadeRadioButton
 			// 
-			this.MadeRadioButton.Location = new System.Drawing.Point(3, 92);
+			this.MadeRadioButton.Location = new System.Drawing.Point(3, 85);
 			this.MadeRadioButton.Name = "MadeRadioButton";
 			this.MadeRadioButton.Size = new System.Drawing.Size(152, 24);
 			this.MadeRadioButton.TabIndex = 3;
 			this.MadeRadioButton.TabStop = true;
 			this.MadeRadioButton.Text = "Виконані замовлення";
 			this.MadeRadioButton.UseVisualStyleBackColor = true;
+			this.MadeRadioButton.CheckedChanged += new System.EventHandler(this.MadeRadioButtonCheckedChanged);
 			// 
 			// VidaniRadioButton
 			// 
-			this.VidaniRadioButton.Location = new System.Drawing.Point(3, 62);
+			this.VidaniRadioButton.Location = new System.Drawing.Point(3, 55);
 			this.VidaniRadioButton.Name = "VidaniRadioButton";
 			this.VidaniRadioButton.Size = new System.Drawing.Size(104, 24);
 			this.VidaniRadioButton.TabIndex = 2;
 			this.VidaniRadioButton.TabStop = true;
 			this.VidaniRadioButton.Text = "Видані";
 			this.VidaniRadioButton.UseVisualStyleBackColor = true;
+			this.VidaniRadioButton.CheckedChanged += new System.EventHandler(this.VidaniRadioButtonCheckedChanged);
 			// 
 			// InRemontRadioButton
 			// 
@@ -262,6 +189,7 @@ namespace Zverev_Kursova_OBD
 			this.InRemontRadioButton.TabStop = true;
 			this.InRemontRadioButton.Text = "У ремонті";
 			this.InRemontRadioButton.UseVisualStyleBackColor = true;
+			this.InRemontRadioButton.CheckedChanged += new System.EventHandler(this.InRemontRadioButtonCheckedChanged);
 			// 
 			// AllRadioButton
 			// 
@@ -272,6 +200,7 @@ namespace Zverev_Kursova_OBD
 			this.AllRadioButton.TabStop = true;
 			this.AllRadioButton.Text = "Всі";
 			this.AllRadioButton.UseVisualStyleBackColor = true;
+			this.AllRadioButton.CheckedChanged += new System.EventHandler(this.AllRadioButtonCheckedChanged);
 			// 
 			// label3
 			// 
@@ -970,9 +899,9 @@ namespace Zverev_Kursova_OBD
 			// DateTimeDataGridView
 			// 
 			this.DateTimeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.DateTimeDataGridView.Location = new System.Drawing.Point(621, 53);
+			this.DateTimeDataGridView.Location = new System.Drawing.Point(16, 709);
 			this.DateTimeDataGridView.Name = "DateTimeDataGridView";
-			this.DateTimeDataGridView.Size = new System.Drawing.Size(186, 83);
+			this.DateTimeDataGridView.Size = new System.Drawing.Size(10, 10);
 			this.DateTimeDataGridView.TabIndex = 6;
 			this.DateTimeDataGridView.Visible = false;
 			// 
@@ -1124,13 +1053,6 @@ namespace Zverev_Kursova_OBD
 		private System.Windows.Forms.RadioButton InRemontRadioButton;
 		private System.Windows.Forms.RadioButton VidaniRadioButton;
 		private System.Windows.Forms.RadioButton MadeRadioButton;
-		private System.Windows.Forms.RadioButton PovtorRadioButton;
-		private System.Windows.Forms.RadioButton GuarranteeRadioButton;
-		private System.Windows.Forms.CheckBox UseDateCheckBox;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ComboBox FirstDateComboBox;
-		private System.Windows.Forms.ComboBox SecondDateComboBox;
 		private System.Windows.Forms.Panel RadioGroupPanel;
 		private System.Windows.Forms.DataGridView MainDataGrid;
 	}

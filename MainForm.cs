@@ -161,6 +161,7 @@ namespace Zverev_Kursova_OBD
 				SetAllValues();
 				if(AllCostTextBox.Text=="0" || AllCostTextBox.Text==""){ 
 					ReadyLabel.Visible=false;
+					ClientInformatedTextBox.Text="";
 				}
 			}
 			if(IsInTable==false) ClearAllValues();
@@ -406,5 +407,50 @@ namespace Zverev_Kursova_OBD
 			catch(Exception ex){};
 		}
 		
+	
+		
+		void InRemontRadioButtonCheckedChanged(object sender, EventArgs e)
+		{
+			if(IsInTable){
+				if(InRemontRadioButton.Checked){
+					MySQL mysql = new MySQL();
+					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "
+					                                          +ZakazName+" where TotalCost=0");
+				}
+			}
+		}
+		
+		void VidaniRadioButtonCheckedChanged(object sender, EventArgs e)
+		{
+			if(IsInTable){
+				if(VidaniRadioButton.Checked){
+					MySQL mysql = new MySQL();
+					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+" inner join "+
+					 "dates on "+ZakazName+".virib_id=dates.virib_id and dates.Vidacha_date is not null;");
+				}
+			}
+		}
+		
+		void MadeRadioButtonCheckedChanged(object sender, EventArgs e)
+		{
+			if(IsInTable){
+				if(MadeRadioButton.Checked){
+					MySQL mysql = new MySQL();
+					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+" inner join "+
+					 "dates on "+ZakazName+".virib_id=dates.virib_id and dates.Vidacha_date is null" +
+					 " and "+ZakazName+".TotalCost<>0;");
+				}
+			}
+		}
+		
+		void AllRadioButtonCheckedChanged(object sender, EventArgs e)
+		{
+			if(IsInTable){
+				if(AllRadioButton.Checked){
+					MySQL mysql = new MySQL();
+					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+" ;");
+				}
+			}
+		}
 	}
 }
