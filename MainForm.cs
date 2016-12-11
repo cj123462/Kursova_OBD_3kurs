@@ -125,11 +125,26 @@ namespace Zverev_Kursova_OBD
 					string vidano=DateTimeDataGridView.Rows[0].Cells[3].Value.ToString();
 					VidanoTextBox.Text=vidano.Substring(0,10);
 				}
-				//if(AllCostTextBox.Text=="") {ReadyLabel.Visible=false;} else ReadyLabel.Visible=true;
 				if(AllCostTextBox.Text!="0" && AllCostTextBox.Text!=""){ 
 					VidachaButton.Enabled=true;
 					ReadyLabel.Visible=true;
 				}
+				try{
+				ExtraInfoDataGridView.DataSource=mysql.exWithResult(@"select * from
+					extra_info where virib_id="+Int32.Parse(NumberTextBox.Text)
+				     +";");
+				TerminalTextBox.Text=ExtraInfoDataGridView.Rows[0].Cells[1].Value.ToString();
+				AcumulatorTextBox.Text=ExtraInfoDataGridView.Rows[0].Cells[2].Value.ToString();
+				ZP1TextBox.Text=ExtraInfoDataGridView.Rows[0].Cells[3].Value.ToString();
+				ZP2TextBox.Text=ExtraInfoDataGridView.Rows[0].Cells[4].Value.ToString();
+				if(ExtraInfoDataGridView.Rows[0].Cells[5].Value.ToString()=="1")
+					GarTalonCheckBox.Checked=true;
+				if(ExtraInfoDataGridView.Rows[0].Cells[6].Value.ToString()=="1")
+					RemoteCheckBox.Checked=true;
+				if(ExtraInfoDataGridView.Rows[0].Cells[7].Value.ToString()=="1")
+					RemoteCheckBox.Checked=true;
+				}
+				catch(Exception ex){};
 			}	
 		}
 		void ClearAllValues(){
@@ -154,6 +169,13 @@ namespace Zverev_Kursova_OBD
 				PrijomDateTextBox.Text="";
 				VidanoTextBox.Text="";
 				VidachaButton.Enabled=false;
+				TerminalTextBox.Text="";
+				AcumulatorTextBox.Text="";
+				ZP1TextBox.Text="";
+				ZP2TextBox.Text="";
+				GarTalonCheckBox.Checked=false;
+				RemoteCheckBox.Checked=false;
+				RemoteCheckBox.Checked=false;
 		}
 		void MainDataGridSelectionChanged(object sender, EventArgs e)
 		{
