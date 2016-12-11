@@ -39,7 +39,6 @@ namespace Zverev_Kursova_OBD
 			mysql.connect("localhost","root","1","zverev_kursova_obd");
 			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
 			MasterDataGridView.DataSource=mysql.exWithResult(@"select master_name from masters");
-			//ExtraInfoDataGridView.DataSource=mysql.exWithResult(@"select * from extra_info");
 			try{
 			foreach(DataGridViewRow row in MasterDataGridView.Rows){ 
 				MasterComboBox.Items.Add(row.Cells[0].Value.ToString());
@@ -117,8 +116,8 @@ namespace Zverev_Kursova_OBD
 				 "where virib_id="+Int32.Parse(NumberTextBox.Text)+";");
 				string prijom = DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
 				PrijomDateTextBox.Text=prijom.Substring(0,10);
-				if(DateTimeDataGridView.Rows[0].Cells[1].Value.ToString()!=""){
-				string info =DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
+				if(DateTimeDataGridView.Rows[0].Cells[2].Value.ToString()!=""){
+				string info =DateTimeDataGridView.Rows[0].Cells[2].Value.ToString();
 				ClientInformatedTextBox.Text=info.Substring(0,10);
 				}
 				if(DateTimeDataGridView.Rows[0].Cells[3].Value.ToString()!=""){
@@ -147,6 +146,7 @@ namespace Zverev_Kursova_OBD
 				catch(Exception ex){};
 			}	
 		}
+		
 		void ClearAllValues(){
 				NumberTextBox.Text="";
 				VirybNameTextBox.Text="";
@@ -202,7 +202,9 @@ namespace Zverev_Kursova_OBD
 			foreach(DataGridViewRow row in MainDataGrid.Rows){
 				if(row.Cells[0].Value.ToString()=="firmi" || 
 				   row.Cells[0].Value.ToString()=="masters" ||
-				   row.Cells[0].Value.ToString()=="vurib")
+				   row.Cells[0].Value.ToString()=="vurib" ||
+				   row.Cells[0].Value.ToString()=="dates" ||
+				   row.Cells[0].Value.ToString()=="extra_info")
 					row.Visible=false;
 				}
 			}
@@ -325,22 +327,28 @@ namespace Zverev_Kursova_OBD
 			}
 			for (int i = 0; i < rowcount; i++) {
 				if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
-					if(i < rowcount-1)
+					if(i < rowcount)
 						querry.Append("select ViribName,virib_id,ViribModel," +
 						"VlasnikName, VlasnikAdress, VlasnikHomeNumber," +
 						"VlasnikWorkNumber, VlasnikMobileNumber," +
 						"Skargi, VikonanaRobota, Primitki," +
 						"Guarantee, SerialNumber, ExtraVidomosti, " +
 			"MasterName, ZapchastiCost, TotalCost as virib_id"+i+" from "+tablenames[i]+")");
-					if(i<rowcount-2) querry.Append( " union all ( ");
+					if(i<rowcount-1) querry.Append( " union all ( ");
 				}
 			}
 			querry.Append(") as t where virib_id="+findnum+";");
+			try{
 			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
 			IsInTable=true;
 			DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates"+
 			"where virib_id="+findnum+";");
-			PrijomDateTextBox.Text=DateTimeDataGridView.Rows[0].Cells[0].Value.ToString();
+			IsInTable=true;
+			
+			}
+			catch(Exception ex) {};
+			SetDataGridValues();
+			ClearAllValues();
 			SetAllValues();
 			}
 		}
@@ -433,7 +441,8 @@ namespace Zverev_Kursova_OBD
 				if(row.Cells[0].Value.ToString()=="firmi" || 
 				   row.Cells[0].Value.ToString()=="masters" ||
 				   row.Cells[0].Value.ToString()=="vurib"
-				  || row.Cells[0].Value.ToString()=="dates")
+				  || row.Cells[0].Value.ToString()=="dates" 
+				  || row.Cells[0].Value.ToString()=="extra_info")
 					row.Visible=false;
 				}
 				} else if(IsInTable){

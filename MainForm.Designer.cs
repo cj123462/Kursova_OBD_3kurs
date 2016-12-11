@@ -99,6 +99,7 @@ namespace Zverev_Kursova_OBD
 			this.SettingsButton = new System.Windows.Forms.Button();
 			this.CopyButton = new System.Windows.Forms.Button();
 			this.ComplectPanel = new System.Windows.Forms.Panel();
+			this.label1 = new System.Windows.Forms.Label();
 			this.ZP2TextBox = new System.Windows.Forms.TextBox();
 			this.label28 = new System.Windows.Forms.Label();
 			this.ZP1TextBox = new System.Windows.Forms.TextBox();
@@ -119,7 +120,6 @@ namespace Zverev_Kursova_OBD
 			this.NumberDataGridView = new System.Windows.Forms.DataGridView();
 			this.DateTimeDataGridView = new System.Windows.Forms.DataGridView();
 			this.ExtraInfoDataGridView = new System.Windows.Forms.DataGridView();
-			this.label1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -746,6 +746,17 @@ namespace Zverev_Kursova_OBD
 			this.ComplectPanel.Size = new System.Drawing.Size(318, 149);
 			this.ComplectPanel.TabIndex = 33;
 			// 
+			// label1
+			// 
+			this.label1.BackColor = System.Drawing.SystemColors.Control;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label1.Location = new System.Drawing.Point(0, 3);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(130, 23);
+			this.label1.TabIndex = 42;
+			this.label1.Text = "Комплектність";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// ZP2TextBox
 			// 
 			this.ZP2TextBox.Location = new System.Drawing.Point(147, 101);
@@ -912,21 +923,11 @@ namespace Zverev_Kursova_OBD
 			// ExtraInfoDataGridView
 			// 
 			this.ExtraInfoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.ExtraInfoDataGridView.Location = new System.Drawing.Point(396, 11);
+			this.ExtraInfoDataGridView.Location = new System.Drawing.Point(32, 709);
 			this.ExtraInfoDataGridView.Name = "ExtraInfoDataGridView";
-			this.ExtraInfoDataGridView.Size = new System.Drawing.Size(341, 57);
+			this.ExtraInfoDataGridView.Size = new System.Drawing.Size(10, 10);
 			this.ExtraInfoDataGridView.TabIndex = 41;
-			// 
-			// label1
-			// 
-			this.label1.BackColor = System.Drawing.SystemColors.Control;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label1.Location = new System.Drawing.Point(0, 3);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(130, 23);
-			this.label1.TabIndex = 42;
-			this.label1.Text = "Комплектність";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ExtraInfoDataGridView.Visible = false;
 			// 
 			// MainForm
 			// 
