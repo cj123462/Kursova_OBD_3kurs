@@ -1,0 +1,15 @@
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\ResolveAssemblyReference.cache
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\Zverev_Kursova_OBD.MainForm.resources
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\GenerateResource.read.1.tlog
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\GenerateResource.write.1.tlog
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\bin\Debug\Zverev_Kursova_OBD.exe
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\bin\Debug\Zverev_Kursova_OBD.pdb
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\bin\Debug\MySql.Data.dll
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\bin\Debug\MySql.Data.Entity.EF5.dll
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\bin\Debug\MySql.Fabric.Plugin.dll
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\Zverev_Kursova_OBD.exe
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\Zverev_Kursova_OBD.pdb
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\Zverev_Kursova_OBD.SettingsForm.resources
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\GenerateResource.read.4.tlog
+D:\C#_Labs\Zverev_Kursova_OBD\Zverev_Kursova_OBD\obj\Debug\Zverev_Kursova_OBD.AddTableForm.resources
