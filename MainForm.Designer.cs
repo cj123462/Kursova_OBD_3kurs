@@ -684,6 +684,7 @@ namespace Zverev_Kursova_OBD
 			this.PrintButton.TabIndex = 28;
 			this.PrintButton.Text = "Печать(F9)";
 			this.PrintButton.UseVisualStyleBackColor = true;
+			this.PrintButton.Click += new System.EventHandler(this.PrintButtonClick);
 			// 
 			// SearchButton
 			// 

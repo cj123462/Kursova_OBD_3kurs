@@ -1,0 +1,27 @@
+insert into id_test (void)values("");
+insert into холодильники (virib_id) values ( 
+  ( 
+    select last_insert_id()
+  )
+); 
+
+select * from (
+(select ViribName,virib_id as virib_id from холодильники)
+union all
+(select ViribName,virib_id as virib_id from телевизоры) ) as t where virib_id=100003;
+ 
+
+insert into холодильники (ViribName,virib_id, ViribModel,VlasnikName,VlasnikAdress,
+VlasnikHomeNumber,VlasnikWorkNumber,VlasnikMobileNumber,Skargi,VikonanaRobota,
+Primitki, Guarantee, SerialNumber, ExtraVidomosti, MasterName, ZapchastiCost, TotalCost)
+values ('hello',23);
+
+insert into dates (Priyom_date) values(20160618);
+
+select * from телевизоры inner join dates on телевизоры.virib_id=dates.virib_id and dates.Vidacha_date is null;
+
+
+select * from телевизоры inner join dates on телевизоры.virib_id=dates.virib_id and dates.Vidacha_date is null and телевизоры.TotalCost=0;
+
+
+select * from dates where Info_date='2016-12-11';

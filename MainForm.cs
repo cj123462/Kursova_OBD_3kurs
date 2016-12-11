@@ -312,44 +312,7 @@ namespace Zverev_Kursova_OBD
 			}
 			}
 			if(IsSearchModeOn==true){
-				SetColors(SystemColors.Window);
-				IsSearchModeOn=false;
-				MySQL mysql = new MySQL();
-			string findnum = NumberTextBox.Text;
-			int rowcount = MainDataGrid.DisplayedRowCount(false);
-			string[] tablenames = new string[rowcount];
-			StringBuilder querry= new StringBuilder();
-			querry.Append("select * from( (");
-			for (int i = 0; i < rowcount; i++) {
-				string str = MainDataGrid.Rows[i].Cells[0].Value.ToString();
-				if(str!="firmi" && str!="masters" && str!="vurib")
-				tablenames[i]=str;
-			}
-			for (int i = 0; i < rowcount; i++) {
-				if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
-					if(i < rowcount)
-						querry.Append("select ViribName,virib_id,ViribModel," +
-						"VlasnikName, VlasnikAdress, VlasnikHomeNumber," +
-						"VlasnikWorkNumber, VlasnikMobileNumber," +
-						"Skargi, VikonanaRobota, Primitki," +
-						"Guarantee, SerialNumber, ExtraVidomosti, " +
-			"MasterName, ZapchastiCost, TotalCost as virib_id"+i+" from "+tablenames[i]+")");
-					if(i<rowcount-1) querry.Append( " union all ( ");
-				}
-			}
-			querry.Append(") as t where virib_id="+findnum+";");
-			try{
-			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
-			IsInTable=true;
-			DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates"+
-			"where virib_id="+findnum+";");
-			IsInTable=true;
-			
-			}
-			catch(Exception ex) {};
-			SetDataGridValues();
-			ClearAllValues();
-			SetAllValues();
+				Search();
 			}
 		}
 		
@@ -427,9 +390,12 @@ namespace Zverev_Kursova_OBD
 				MySQL mysql = new MySQL();
 				DateTime myDateTime=DateTime.Now;
 				VidanoTextBox.Text=myDateTime.ToString("dd-MM-yyyy");
-				mysql.exWithResult(@"update dates set Vidacha_date='"+
+				//mysql.exWithResult(@"update dates set Vidacha_date='"+
+			      //  myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
+			    //	Int32.Parse(NumberTextBox.Text)+";");
+				mysql.exWithResult(@"update "+ZakazName+ " set Vidacha_date='"+
 			        myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
-			    	Int32.Parse(NumberTextBox.Text)+";");		
+			    	Int32.Parse(NumberTextBox.Text)+";");				
 			}
 				
 			}
@@ -499,6 +465,59 @@ namespace Zverev_Kursova_OBD
 					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+" ;");
 				}
 			}
+		}
+		
+		void Search(){
+		SetColors(SystemColors.Window);
+				IsSearchModeOn=false;
+				MySQL mysql = new MySQL();
+				StringBuilder querry= new StringBuilder();
+				int rowcount = MainDataGrid.DisplayedRowCount(false);
+				string findnum = NumberTextBox.Text;
+				string[] tablenames = new string[rowcount];
+				for (int i = 0; i < rowcount; i++) {
+						string str = MainDataGrid.Rows[i].Cells[0].Value.ToString();
+					if(str!="firmi" && str!="masters" && str!="vurib")
+						tablenames[i]=str;
+					}
+				querry.Append("select * from( (");
+					for (int i = 0; i < rowcount; i++) {
+						if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
+						if(i < rowcount)
+						querry.Append("select ViribName,virib_id,ViribModel," +
+						"VlasnikName, VlasnikAdress, VlasnikHomeNumber," +
+						"VlasnikWorkNumber, VlasnikMobileNumber," +
+						"Skargi, VikonanaRobota, Primitki," +
+						"Guarantee, SerialNumber, ExtraVidomosti, " +
+			"MasterName, ZapchastiCost, TotalCost as virib_id"+i+" from "+tablenames[i]+")");
+					if(i<rowcount-1) querry.Append( " union all ( ");
+				}
+			}
+				if(findnum!=""){
+					querry.Append(") as t where virib_id="+findnum+";");
+			} //else if()
+				
+			try{
+			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
+			IsInTable=true;
+			DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates"+
+			"where virib_id="+findnum+";");
+			IsInTable=true;
+			}
+			catch(Exception ex) {};
+			SetDataGridValues();
+			ClearAllValues();
+			SetAllValues();
+			
+		}
+		
+		void PrintButtonClick(object sender, EventArgs e)
+		{
+			MySQL mysql = new MySQL();
+			MainDataGrid.DataSource=mysql.exWithResult(@"select * from телевизоры where Vidacha_date='2016-12-11'
+union all
+select * from стиралки where Vidacha_date='2016-12-11';");
+			IsInTable=true;
 		}
 	}
 }
