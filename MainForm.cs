@@ -54,16 +54,7 @@ namespace Zverev_Kursova_OBD
 			}
 			catch(Exception ex){ MessageBox.Show(ex.Message);}
 						MainDataGrid.CurrentCell=null;
-			try{
-			foreach(DataGridViewRow row in MainDataGrid.Rows){
-				if(row.Cells[0].Value.ToString()=="firmi" || 
-				   row.Cells[0].Value.ToString()=="masters" ||
-				   row.Cells[0].Value.ToString()=="vurib"
-				  || row.Cells[0].Value.ToString()=="dates")
-					row.Visible=false;
-				}
-			}
-			catch(Exception ex){};
+						SetDataGridValues();
 			this.KeyPreview=true;
 			
 		}
@@ -86,16 +77,18 @@ namespace Zverev_Kursova_OBD
 			IsInTable=false;
 			MySQL mysql = new MySQL();
 			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
-			try{
+			/*try{
 			foreach(DataGridViewRow row in MainDataGrid.Rows){
 				if(row.Cells[0].Value.ToString()=="firmi" || row.Cells[0].Value.ToString()=="vurib" ||
 					row.Cells[0].Value.ToString()=="masters" || row.Cells[0].Value.ToString()=="dates" )
 					row.Visible=false;
 				}
+			}*/ SetDataGridValues();
+			
+			
 			}
-			catch(Exception ex){};
 			ClearAllValues();
-			}
+			ReadyLabel.Visible=false;
 		}
 		
 		void SetAllValues(){
@@ -131,7 +124,11 @@ namespace Zverev_Kursova_OBD
 					string vidano=DateTimeDataGridView.Rows[0].Cells[3].Value.ToString();
 					VidanoTextBox.Text=vidano.Substring(0,10);
 				}
-				if(VidanoTextBox.Text=="") {ReadyLabel.Visible=false;} else ReadyLabel.Visible=true;
+				//if(AllCostTextBox.Text=="") {ReadyLabel.Visible=false;} else ReadyLabel.Visible=true;
+				if(AllCostTextBox.Text!="0" && AllCostTextBox.Text!=""){ 
+					VidachaButton.Enabled=true;
+					ReadyLabel.Visible=true;
+				}
 			}	
 		}
 		void ClearAllValues(){
@@ -155,15 +152,20 @@ namespace Zverev_Kursova_OBD
 				ClientInformatedTextBox.Text="";
 				PrijomDateTextBox.Text="";
 				VidanoTextBox.Text="";
+				VidachaButton.Enabled=false;
 		}
 		void MainDataGridSelectionChanged(object sender, EventArgs e)
 		{
 			if(IsInTable==true){
 				ClearAllValues();
-			SetAllValues();
+				SetAllValues();
+				if(AllCostTextBox.Text=="0" || AllCostTextBox.Text==""){ 
+					ReadyLabel.Visible=false;
+				}
 			}
 			if(IsInTable==false) ClearAllValues();
 			IsItExists=true;
+			
 		}
 		
 		void SearchButtonClick(object sender, EventArgs e)
@@ -195,7 +197,10 @@ namespace Zverev_Kursova_OBD
 			string str= MainDataGrid.Rows[rowindex].Cells[0].Value.ToString();
 			MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+str+";");
 			IsInTable=true;
+			ClearAllValues();
 			SetAllValues();
+
+			SetDataGridValues();
 			}
 		}
 		
@@ -248,13 +253,20 @@ namespace Zverev_Kursova_OBD
 			 	IsItExists=true;
 			 }
 			 if(IsItExists==true){
+			 	int ZC=0;
+			 	int AC=0;
+			 	if(ZapchastiCostTextBox.Text!="") ZC=Int32.Parse(ZapchastiCostTextBox.Text);
+			 	if(AllCostTextBox.Text!="" && AllCostTextBox.Text!="0") {
+			 		AC=Int32.Parse(AllCostTextBox.Text); 
+			 		VidachaButton.Enabled=true;
+			 	}
 			 mysql.exWithoutResult(@"update "+ZakazName+" set ViribName='" +s1+ "',"+
 		"ViribModel='"+s2+"',VlasnikName='"+s3+"',VlasnikAdress='"+
 		s4+"',VlasnikHomeNumber='"+s5+"',VlasnikWorkNumber='"+s6
 		+"',VlasnikMobileNumber='"+s7+"',Skargi='"+
 		s8+"',VikonanaRobota='"+s9+"',Primitki='"+s10+"',Guarantee='"+
 		s11+"', SerialNumber="+sn+",ExtraVidomosti='"+s12+"',MasterName='"+
-		s13+"' where virib_id="+num+";");
+		s13+"', Zapchasticost="+ZC+",TotalCost="+AC+" where virib_id="+num+";");
 			}
 			}
 			if(IsSearchModeOn==true){
@@ -359,14 +371,40 @@ namespace Zverev_Kursova_OBD
 		void VidachaButtonClick(object sender, EventArgs e)
 		{
 			if(IsInTable){
-			MySQL mysql = new MySQL();
-			DateTime myDateTime=DateTime.Now;
-			VidanoTextBox.Text=myDateTime.ToString("dd-MM-yyyy");
-			mysql.exWithResult(@"update dates set Vidacha_date='"+
-			                   myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
-			                   Int32.Parse(NumberTextBox.Text)+";");
-			ReadyLabel.Visible=true;
+			DialogResult result = MessageBox.Show("Хочете видати виріб клієнту?", 
+			 "Підтвердження", MessageBoxButtons.YesNoCancel);
+			if(result==DialogResult.No){
+				ReadyLabel.Visible=true;
+			}else if(result== DialogResult.Yes){
+				MySQL mysql = new MySQL();
+				DateTime myDateTime=DateTime.Now;
+				VidanoTextBox.Text=myDateTime.ToString("dd-MM-yyyy");
+				mysql.exWithResult(@"update dates set Vidacha_date='"+
+			        myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
+			    	Int32.Parse(NumberTextBox.Text)+";");		
+			}
+				
 			}
 		}
+		void SetDataGridValues(){
+			try{
+			if(IsInTable==false){
+			foreach(DataGridViewRow row in MainDataGrid.Rows){
+				if(row.Cells[0].Value.ToString()=="firmi" || 
+				   row.Cells[0].Value.ToString()=="masters" ||
+				   row.Cells[0].Value.ToString()=="vurib"
+				  || row.Cells[0].Value.ToString()=="dates")
+					row.Visible=false;
+				}
+				} else if(IsInTable){
+					foreach(DataGridViewRow row in MainDataGrid.Rows)
+						for (int i = 2; i < MainDataGrid.ColumnCount; i++) {
+						MainDataGrid.Columns[i].Visible=false;
+						}
+				}
+			}
+			catch(Exception ex){};
+		}
+		
 	}
 }

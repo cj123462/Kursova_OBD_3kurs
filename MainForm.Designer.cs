@@ -140,6 +140,10 @@ namespace Zverev_Kursova_OBD
 			// 
 			// MainDataGrid
 			// 
+			this.MainDataGrid.AllowUserToAddRows = false;
+			this.MainDataGrid.AllowUserToDeleteRows = false;
+			this.MainDataGrid.AllowUserToResizeColumns = false;
+			this.MainDataGrid.AllowUserToResizeRows = false;
 			this.MainDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.MainDataGrid.Location = new System.Drawing.Point(12, 67);
 			this.MainDataGrid.Name = "MainDataGrid";
@@ -761,6 +765,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// VidachaButton
 			// 
+			this.VidachaButton.Enabled = false;
 			this.VidachaButton.Location = new System.Drawing.Point(617, 652);
 			this.VidachaButton.Name = "VidachaButton";
 			this.VidachaButton.Size = new System.Drawing.Size(100, 23);
