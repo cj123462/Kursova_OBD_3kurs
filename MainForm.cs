@@ -23,6 +23,11 @@ namespace Zverev_Kursova_OBD
 		bool IsItExists=true;
 		bool IsSearchModeOn=false;
 		string ZakazName="";
+		string CopyName="";
+		string CopyHomePhoneNumber="";
+		string CopyWorkPhoneNumber="";
+		string CopyMobilePhoneNumber="";
+		string CopyAdress="";
 		public MainForm()
 		{
 			InitializeComponent();
@@ -53,11 +58,13 @@ namespace Zverev_Kursova_OBD
 			foreach(DataGridViewRow row in MainDataGrid.Rows){
 				if(row.Cells[0].Value.ToString()=="firmi" || 
 				   row.Cells[0].Value.ToString()=="masters" ||
-				   row.Cells[0].Value.ToString()=="vurib")
+				   row.Cells[0].Value.ToString()=="vurib"
+				  || row.Cells[0].Value.ToString()=="dates")
 					row.Visible=false;
 				}
 			}
 			catch(Exception ex){};
+			this.KeyPreview=true;
 			
 		}
 		
@@ -82,7 +89,7 @@ namespace Zverev_Kursova_OBD
 			try{
 			foreach(DataGridViewRow row in MainDataGrid.Rows){
 				if(row.Cells[0].Value.ToString()=="firmi" || row.Cells[0].Value.ToString()=="vurib" ||
-					row.Cells[0].Value.ToString()=="masters" )
+					row.Cells[0].Value.ToString()=="masters" || row.Cells[0].Value.ToString()=="dates" )
 					row.Visible=false;
 				}
 			}
@@ -92,6 +99,7 @@ namespace Zverev_Kursova_OBD
 		}
 		
 		void SetAllValues(){
+			MySQL mysql = new MySQL();
 			if(IsInTable){
 				int rowid = MainDataGrid.CurrentRow.Index;
 				NumberTextBox.Text=MainDataGrid.Rows[rowid].Cells[1].Value.ToString();
@@ -111,6 +119,12 @@ namespace Zverev_Kursova_OBD
 				MasterComboBox.Text=MainDataGrid.Rows[rowid].Cells[14].Value.ToString();
 				ZapchastiCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[15].Value.ToString();
 				AllCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[16].Value.ToString();
+				DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates "+
+				 "where virib_id="+Int32.Parse(NumberTextBox.Text)+";");
+				PrijomDateTextBox.Text=DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
+				ClientInformatedTextBox.Text=DateTimeDataGridView.Rows[0].Cells[2].Value.ToString();
+				VidanoTextBox.Text=DateTimeDataGridView.Rows[0].Cells[3].Value.ToString();
+				if(VidanoTextBox.Text=="") {ReadyLabel.Visible=false;} else ReadyLabel.Visible=true;
 			}	
 		}
 		void ClearAllValues(){
@@ -132,6 +146,9 @@ namespace Zverev_Kursova_OBD
 				MasterComboBox.Text="";
 				ZapchastiCostTextBox.Text="";
 				AllCostTextBox.Text="";
+				ClientInformatedTextBox.Text="";
+				PrijomDateTextBox.Text="";
+				VidanoTextBox.Text="";
 			}
 		}
 		void MainDataGridSelectionChanged(object sender, EventArgs e)
@@ -145,8 +162,23 @@ namespace Zverev_Kursova_OBD
 		
 		void SearchButtonClick(object sender, EventArgs e)
 		{
+			IsInTable=false;
+			ClearAllValues();
+			MySQL mysql = new MySQL();
+			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
+			try{
+			foreach(DataGridViewRow row in MainDataGrid.Rows){
+				if(row.Cells[0].Value.ToString()=="firmi" || 
+				   row.Cells[0].Value.ToString()=="masters" ||
+				   row.Cells[0].Value.ToString()=="vurib")
+					row.Visible=false;
+				}
+			}
+			catch(Exception ex){};
+			
 			IsSearchModeOn=true;
 			SetColors(SystemColors.GradientActiveCaption);
+			
 		}
 		
 		void MainDataGridDoubleClick(object sender, EventArgs e)
@@ -167,8 +199,13 @@ namespace Zverev_Kursova_OBD
 			mysql.exWithoutResult(@"insert into vurib (void) values('');");
 			NumberDataGridView.DataSource=mysql.exWithResult(@"select last_insert_id()");//(@"select * from vurib;");
 			NumberTextBox.Text=NumberDataGridView.Rows[0].Cells[0].Value.ToString();
+			int num=Int32.Parse(NumberTextBox.Text);
 			VirybNameTextBox.Text=ZakazName;
 			IsItExists=false;
+			DateTime myDateTime=DateTime.Now;
+			PrijomDateTextBox.Text=myDateTime.ToString("dd-MM-yyyy");
+			mysql.exWithResult(@"insert into dates (Virib_id,Priyom_date) values ("+
+			 	                   num+",'"+myDateTime.Date.ToString("yyyyMMdd")+"')");
 		}
 		
 		void OKButtonClick(object sender, EventArgs e)
@@ -192,6 +229,7 @@ namespace Zverev_Kursova_OBD
 			 string s12=ExtraInfoRichTextBox.Text;
 			 string s13=MasterComboBox.Text;
 			 if(IsItExists==false){
+			 	
 			mysql.exWithoutResult(@"insert into "+ZakazName+" (ViribName,virib_id, ViribModel,VlasnikName"+
 		",VlasnikAdress,VlasnikHomeNumber,VlasnikWorkNumber,VlasnikMobileNumber,Skargi"
 		+",VikonanaRobota,Primitki, Guarantee, SerialNumber, ExtraVidomosti,"+
@@ -203,7 +241,7 @@ namespace Zverev_Kursova_OBD
 		s13+"');");
 			 	IsItExists=true;
 			 }
-			 if(IsItExists=true){
+			 if(IsItExists==true){
 			 mysql.exWithoutResult(@"update "+ZakazName+" set ViribName='" +s1+ "',"+
 		"ViribModel='"+s2+"',VlasnikName='"+s3+"',VlasnikAdress='"+
 		s4+"',VlasnikHomeNumber='"+s5+"',VlasnikWorkNumber='"+s6
@@ -242,6 +280,9 @@ namespace Zverev_Kursova_OBD
 			querry.Append(") as t where virib_id="+findnum+";");
 			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
 			IsInTable=true;
+			DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates"+
+			"where virib_id="+findnum+";");
+			PrijomDateTextBox.Text=DateTimeDataGridView.Rows[0].Cells[0].Value.ToString();
 			SetAllValues();
 			}
 		}
@@ -264,6 +305,62 @@ namespace Zverev_Kursova_OBD
 				MasterComboBox.BackColor=c;
 				ZapchastiCostTextBox.BackColor=c;
 				AllCostTextBox.BackColor=c;
+		}
+		
+		void CopyButtonClick(object sender, EventArgs e)
+		{
+			if(CopyButton.Text=="Зробити копію"){
+				CopyName=ClientNameTextBox.Text;
+				CopyHomePhoneNumber=ClientHomeNumberTextBox.Text;
+				CopyWorkPhoneNumber=ClientWorkNumberTextBox.Text;
+				CopyMobilePhoneNumber=ClientMobileNumberTextBox.Text;
+				CopyAdress=ClientAdressTextBox.Text;
+				CopyButton.Text="Вставити копію";
+			}
+			else{
+				ClientNameTextBox.Text=CopyName;
+				ClientHomeNumberTextBox.Text=CopyHomePhoneNumber;
+				ClientWorkNumberTextBox.Text=CopyWorkPhoneNumber;
+				ClientMobileNumberTextBox.Text=CopyMobilePhoneNumber;
+				ClientAdressTextBox.Text=CopyAdress;
+				CopyButton.Text="Зробити копію";
+			}
+		}
+	protected override bool ProcessCmdKey(ref Message msg, Keys keydata){
+		if(keydata== (Keys.F3)){
+			SearchButton.PerformClick();
+		} else if(keydata== (Keys.F1)){
+			PriyomButtom.PerformClick();
+		}else if(keydata== (Keys.F12)){
+			OKButton.PerformClick();
+		}
+		return base.ProcessCmdKey(ref msg, keydata);
+		}
+		
+
+		
+		void ClientInformatedButtonClick(object sender, EventArgs e)
+		{
+			if(IsInTable){
+			MySQL mysql = new MySQL();
+			DateTime myDateTime=DateTime.Now;
+			ClientInformatedTextBox.Text=myDateTime.ToString("dd-MM-yyyy");
+			mysql.exWithResult(@"update dates set Info_date='"+
+			                   myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
+			                   Int32.Parse(NumberTextBox.Text)+";");}
+		}
+		
+		void VidachaButtonClick(object sender, EventArgs e)
+		{
+			if(IsInTable){
+			MySQL mysql = new MySQL();
+			DateTime myDateTime=DateTime.Now;
+			VidanoTextBox.Text=myDateTime.ToString("dd-MM-yyyy");
+			mysql.exWithResult(@"update dates set Vidacha_date='"+
+			                   myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
+			                   Int32.Parse(NumberTextBox.Text)+";");
+			ReadyLabel.Visible=true;
+			}
 		}
 	}
 }

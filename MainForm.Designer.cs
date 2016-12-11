@@ -124,6 +124,7 @@ namespace Zverev_Kursova_OBD
 			this.BackPictureBox = new System.Windows.Forms.PictureBox();
 			this.GuaranteeDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.NumberDataGridView = new System.Windows.Forms.DataGridView();
+			this.DateTimeDataGridView = new System.Windows.Forms.DataGridView();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -134,6 +135,7 @@ namespace Zverev_Kursova_OBD
 			((System.ComponentModel.ISupportInitialize)(this.FirmiDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.BackPictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NumberDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.DateTimeDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainDataGrid
@@ -414,6 +416,7 @@ namespace Zverev_Kursova_OBD
 			this.ClientInformatedButton.TabIndex = 10;
 			this.ClientInformatedButton.Text = "Повідомлено";
 			this.ClientInformatedButton.UseVisualStyleBackColor = true;
+			this.ClientInformatedButton.Click += new System.EventHandler(this.ClientInformatedButtonClick);
 			// 
 			// ClientMobileNumberTextBox
 			// 
@@ -764,6 +767,7 @@ namespace Zverev_Kursova_OBD
 			this.VidachaButton.TabIndex = 30;
 			this.VidachaButton.Text = "Видача(F5)";
 			this.VidachaButton.UseVisualStyleBackColor = true;
+			this.VidachaButton.Click += new System.EventHandler(this.VidachaButtonClick);
 			// 
 			// SettingsButton
 			// 
@@ -783,6 +787,7 @@ namespace Zverev_Kursova_OBD
 			this.CopyButton.TabIndex = 32;
 			this.CopyButton.Text = "Зробити копію";
 			this.CopyButton.UseVisualStyleBackColor = true;
+			this.CopyButton.Click += new System.EventHandler(this.CopyButtonClick);
 			// 
 			// ComplectPanel
 			// 
@@ -957,12 +962,21 @@ namespace Zverev_Kursova_OBD
 			this.NumberDataGridView.TabIndex = 40;
 			this.NumberDataGridView.Visible = false;
 			// 
+			// DateTimeDataGridView
+			// 
+			this.DateTimeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DateTimeDataGridView.Location = new System.Drawing.Point(621, 53);
+			this.DateTimeDataGridView.Name = "DateTimeDataGridView";
+			this.DateTimeDataGridView.Size = new System.Drawing.Size(186, 83);
+			this.DateTimeDataGridView.TabIndex = 6;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.Controls.Add(this.DateTimeDataGridView);
 			this.Controls.Add(this.NumberDataGridView);
 			this.Controls.Add(this.GuaranteeDateTimePicker);
 			this.Controls.Add(this.BackPictureBox);
@@ -1021,9 +1035,11 @@ namespace Zverev_Kursova_OBD
 			((System.ComponentModel.ISupportInitialize)(this.FirmiDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.BackPictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.NumberDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.DateTimeDataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.DataGridView DateTimeDataGridView;
 		private System.Windows.Forms.DataGridView NumberDataGridView;
 		private System.Windows.Forms.DateTimePicker GuaranteeDateTimePicker;
 		private System.Windows.Forms.PictureBox BackPictureBox;
