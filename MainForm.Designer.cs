@@ -118,6 +118,8 @@ namespace Zverev_Kursova_OBD
 			this.GuaranteeDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.NumberDataGridView = new System.Windows.Forms.DataGridView();
 			this.DateTimeDataGridView = new System.Windows.Forms.DataGridView();
+			this.ExtraInfoDataGridView = new System.Windows.Forms.DataGridView();
+			this.label1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -129,6 +131,7 @@ namespace Zverev_Kursova_OBD
 			((System.ComponentModel.ISupportInitialize)(this.BackPictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.NumberDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DateTimeDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ExtraInfoDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainDataGrid
@@ -726,6 +729,7 @@ namespace Zverev_Kursova_OBD
 			// ComplectPanel
 			// 
 			this.ComplectPanel.BackColor = System.Drawing.SystemColors.Control;
+			this.ComplectPanel.Controls.Add(this.label1);
 			this.ComplectPanel.Controls.Add(this.ZP2TextBox);
 			this.ComplectPanel.Controls.Add(this.label28);
 			this.ComplectPanel.Controls.Add(this.ZP1TextBox);
@@ -744,14 +748,14 @@ namespace Zverev_Kursova_OBD
 			// 
 			// ZP2TextBox
 			// 
-			this.ZP2TextBox.Location = new System.Drawing.Point(147, 79);
+			this.ZP2TextBox.Location = new System.Drawing.Point(147, 101);
 			this.ZP2TextBox.Name = "ZP2TextBox";
 			this.ZP2TextBox.Size = new System.Drawing.Size(168, 20);
 			this.ZP2TextBox.TabIndex = 10;
 			// 
 			// label28
 			// 
-			this.label28.Location = new System.Drawing.Point(3, 77);
+			this.label28.Location = new System.Drawing.Point(3, 99);
 			this.label28.Name = "label28";
 			this.label28.Size = new System.Drawing.Size(138, 23);
 			this.label28.TabIndex = 9;
@@ -760,14 +764,14 @@ namespace Zverev_Kursova_OBD
 			// 
 			// ZP1TextBox
 			// 
-			this.ZP1TextBox.Location = new System.Drawing.Point(147, 54);
+			this.ZP1TextBox.Location = new System.Drawing.Point(147, 76);
 			this.ZP1TextBox.Name = "ZP1TextBox";
 			this.ZP1TextBox.Size = new System.Drawing.Size(168, 20);
 			this.ZP1TextBox.TabIndex = 8;
 			// 
 			// label27
 			// 
-			this.label27.Location = new System.Drawing.Point(3, 51);
+			this.label27.Location = new System.Drawing.Point(3, 73);
 			this.label27.Name = "label27";
 			this.label27.Size = new System.Drawing.Size(138, 23);
 			this.label27.TabIndex = 7;
@@ -776,7 +780,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// WiresCheckBox
 			// 
-			this.WiresCheckBox.Location = new System.Drawing.Point(228, 103);
+			this.WiresCheckBox.Location = new System.Drawing.Point(228, 120);
 			this.WiresCheckBox.Name = "WiresCheckBox";
 			this.WiresCheckBox.Size = new System.Drawing.Size(87, 26);
 			this.WiresCheckBox.TabIndex = 6;
@@ -785,7 +789,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// RemoteCheckBox
 			// 
-			this.RemoteCheckBox.Location = new System.Drawing.Point(125, 106);
+			this.RemoteCheckBox.Location = new System.Drawing.Point(125, 122);
 			this.RemoteCheckBox.Name = "RemoteCheckBox";
 			this.RemoteCheckBox.Size = new System.Drawing.Size(60, 24);
 			this.RemoteCheckBox.TabIndex = 5;
@@ -794,7 +798,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// GarTalonCheckBox
 			// 
-			this.GarTalonCheckBox.Location = new System.Drawing.Point(20, 106);
+			this.GarTalonCheckBox.Location = new System.Drawing.Point(17, 125);
 			this.GarTalonCheckBox.Name = "GarTalonCheckBox";
 			this.GarTalonCheckBox.Size = new System.Drawing.Size(83, 21);
 			this.GarTalonCheckBox.TabIndex = 4;
@@ -803,14 +807,14 @@ namespace Zverev_Kursova_OBD
 			// 
 			// AcumulatorTextBox
 			// 
-			this.AcumulatorTextBox.Location = new System.Drawing.Point(85, 28);
+			this.AcumulatorTextBox.Location = new System.Drawing.Point(85, 50);
 			this.AcumulatorTextBox.Name = "AcumulatorTextBox";
 			this.AcumulatorTextBox.Size = new System.Drawing.Size(230, 20);
 			this.AcumulatorTextBox.TabIndex = 3;
 			// 
 			// label26
 			// 
-			this.label26.Location = new System.Drawing.Point(3, 28);
+			this.label26.Location = new System.Drawing.Point(3, 50);
 			this.label26.Name = "label26";
 			this.label26.Size = new System.Drawing.Size(83, 18);
 			this.label26.TabIndex = 2;
@@ -819,14 +823,14 @@ namespace Zverev_Kursova_OBD
 			// 
 			// TerminalTextBox
 			// 
-			this.TerminalTextBox.Location = new System.Drawing.Point(85, 4);
+			this.TerminalTextBox.Location = new System.Drawing.Point(85, 26);
 			this.TerminalTextBox.Name = "TerminalTextBox";
 			this.TerminalTextBox.Size = new System.Drawing.Size(230, 20);
 			this.TerminalTextBox.TabIndex = 1;
 			// 
 			// label14
 			// 
-			this.label14.Location = new System.Drawing.Point(3, 4);
+			this.label14.Location = new System.Drawing.Point(3, 26);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(76, 16);
 			this.label14.TabIndex = 0;
@@ -905,12 +909,32 @@ namespace Zverev_Kursova_OBD
 			this.DateTimeDataGridView.TabIndex = 6;
 			this.DateTimeDataGridView.Visible = false;
 			// 
+			// ExtraInfoDataGridView
+			// 
+			this.ExtraInfoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.ExtraInfoDataGridView.Location = new System.Drawing.Point(396, 11);
+			this.ExtraInfoDataGridView.Name = "ExtraInfoDataGridView";
+			this.ExtraInfoDataGridView.Size = new System.Drawing.Size(341, 57);
+			this.ExtraInfoDataGridView.TabIndex = 41;
+			// 
+			// label1
+			// 
+			this.label1.BackColor = System.Drawing.SystemColors.Control;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.label1.Location = new System.Drawing.Point(0, 3);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(130, 23);
+			this.label1.TabIndex = 42;
+			this.label1.Text = "Комплектність";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.Controls.Add(this.ExtraInfoDataGridView);
 			this.Controls.Add(this.DateTimeDataGridView);
 			this.Controls.Add(this.NumberDataGridView);
 			this.Controls.Add(this.GuaranteeDateTimePicker);
@@ -971,9 +995,12 @@ namespace Zverev_Kursova_OBD
 			((System.ComponentModel.ISupportInitialize)(this.BackPictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.NumberDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DateTimeDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ExtraInfoDataGridView)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.DataGridView ExtraInfoDataGridView;
+		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView DateTimeDataGridView;
 		private System.Windows.Forms.DataGridView NumberDataGridView;
 		private System.Windows.Forms.DateTimePicker GuaranteeDateTimePicker;

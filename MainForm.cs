@@ -39,6 +39,7 @@ namespace Zverev_Kursova_OBD
 			mysql.connect("localhost","root","1","zverev_kursova_obd");
 			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
 			MasterDataGridView.DataSource=mysql.exWithResult(@"select master_name from masters");
+			ExtraInfoDataGridView.DataSource=mysql.exWithResult(@"select * from extra_info");
 			try{
 			foreach(DataGridViewRow row in MasterDataGridView.Rows){ 
 				MasterComboBox.Items.Add(row.Cells[0].Value.ToString());
@@ -240,6 +241,12 @@ namespace Zverev_Kursova_OBD
 			 string s11=GuaranteeComboBox.Text;
 			 string s12=ExtraInfoRichTextBox.Text;
 			 string s13=MasterComboBox.Text;
+			 string s14= TerminalTextBox.Text;
+			 
+			 string s15=TerminalTextBox.Text;
+			 string s16=AcumulatorTextBox.Text;
+			 string s17=ZP1TextBox.Text;
+			 string s18=ZP2TextBox.Text;
 			 if(IsItExists==false){
 			 	
 			mysql.exWithoutResult(@"insert into "+ZakazName+" (ViribName,virib_id, ViribModel,VlasnikName"+
@@ -252,6 +259,16 @@ namespace Zverev_Kursova_OBD
 		s11+"',"+sn+",'"+s12+"','"+
 		s13+"');");
 			 	IsItExists=true;
+			 	if(s15!="" || s16!="" || s17!="" || GarTalonCheckBox.Checked ||
+			 	   RemoteCheckBox.Checked || WiresCheckBox.Checked){
+			 		bool b1=GarTalonCheckBox.Checked;
+			 		bool b2=RemoteCheckBox.Checked;
+			 		bool b3=WiresCheckBox.Checked;
+			 		mysql.exWithoutResult(@"insert into extra_info (virib_id,"
+					+"TerminalNum,AcumNum,ZPvidEM,ZPvidSigi,GarTalon,Pult,Wire)"+
+				" values ("+num+",'"+s15+"','"+s16+"','"+s17+"','"+s18+"',"+b1+
+				","+b2+","+b3+");");
+			 	}
 			 }
 			 if(IsItExists==true){
 			 	int ZC=0;
