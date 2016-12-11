@@ -969,6 +969,7 @@ namespace Zverev_Kursova_OBD
 			this.DateTimeDataGridView.Name = "DateTimeDataGridView";
 			this.DateTimeDataGridView.Size = new System.Drawing.Size(186, 83);
 			this.DateTimeDataGridView.TabIndex = 6;
+			this.DateTimeDataGridView.Visible = false;
 			// 
 			// MainForm
 			// 

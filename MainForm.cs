@@ -121,14 +121,20 @@ namespace Zverev_Kursova_OBD
 				AllCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[16].Value.ToString();
 				DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates "+
 				 "where virib_id="+Int32.Parse(NumberTextBox.Text)+";");
-				PrijomDateTextBox.Text=DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
-				ClientInformatedTextBox.Text=DateTimeDataGridView.Rows[0].Cells[2].Value.ToString();
-				VidanoTextBox.Text=DateTimeDataGridView.Rows[0].Cells[3].Value.ToString();
+				string prijom = DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
+				PrijomDateTextBox.Text=prijom.Substring(0,10);
+				if(DateTimeDataGridView.Rows[0].Cells[1].Value.ToString()!=""){
+				string info =DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
+				ClientInformatedTextBox.Text=info.Substring(0,10);
+				}
+				if(DateTimeDataGridView.Rows[0].Cells[3].Value.ToString()!=""){
+					string vidano=DateTimeDataGridView.Rows[0].Cells[3].Value.ToString();
+					VidanoTextBox.Text=vidano.Substring(0,10);
+				}
 				if(VidanoTextBox.Text=="") {ReadyLabel.Visible=false;} else ReadyLabel.Visible=true;
 			}	
 		}
 		void ClearAllValues(){
-			if(IsInTable==false){
 				NumberTextBox.Text="";
 				VirybNameTextBox.Text="";
 				VuribModelTextBox.Text="";
@@ -149,11 +155,11 @@ namespace Zverev_Kursova_OBD
 				ClientInformatedTextBox.Text="";
 				PrijomDateTextBox.Text="";
 				VidanoTextBox.Text="";
-			}
 		}
 		void MainDataGridSelectionChanged(object sender, EventArgs e)
 		{
 			if(IsInTable==true){
+				ClearAllValues();
 			SetAllValues();
 			}
 			if(IsInTable==false) ClearAllValues();
