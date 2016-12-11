@@ -39,7 +39,7 @@ namespace Zverev_Kursova_OBD
 			mysql.connect("localhost","root","1","zverev_kursova_obd");
 			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
 			MasterDataGridView.DataSource=mysql.exWithResult(@"select master_name from masters");
-			ExtraInfoDataGridView.DataSource=mysql.exWithResult(@"select * from extra_info");
+			//ExtraInfoDataGridView.DataSource=mysql.exWithResult(@"select * from extra_info");
 			try{
 			foreach(DataGridViewRow row in MasterDataGridView.Rows){ 
 				MasterComboBox.Items.Add(row.Cells[0].Value.ToString());
