@@ -120,6 +120,7 @@ namespace Zverev_Kursova_OBD
 			this.NumberDataGridView = new System.Windows.Forms.DataGridView();
 			this.DateTimeDataGridView = new System.Windows.Forms.DataGridView();
 			this.ExtraInfoDataGridView = new System.Windows.Forms.DataGridView();
+			this.AddTablePictureBox = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -132,6 +133,7 @@ namespace Zverev_Kursova_OBD
 			((System.ComponentModel.ISupportInitialize)(this.NumberDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DateTimeDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ExtraInfoDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.AddTablePictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// MainDataGrid
@@ -930,12 +932,24 @@ namespace Zverev_Kursova_OBD
 			this.ExtraInfoDataGridView.TabIndex = 41;
 			this.ExtraInfoDataGridView.Visible = false;
 			// 
+			// AddTablePictureBox
+			// 
+			this.AddTablePictureBox.Image = ((System.Drawing.Image)(resources.GetObject("AddTablePictureBox.Image")));
+			this.AddTablePictureBox.Location = new System.Drawing.Point(58, 11);
+			this.AddTablePictureBox.Name = "AddTablePictureBox";
+			this.AddTablePictureBox.Size = new System.Drawing.Size(40, 40);
+			this.AddTablePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.AddTablePictureBox.TabIndex = 42;
+			this.AddTablePictureBox.TabStop = false;
+			this.AddTablePictureBox.Click += new System.EventHandler(this.AddTablePictureBoxClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.Controls.Add(this.AddTablePictureBox);
 			this.Controls.Add(this.ExtraInfoDataGridView);
 			this.Controls.Add(this.DateTimeDataGridView);
 			this.Controls.Add(this.NumberDataGridView);
@@ -998,9 +1012,11 @@ namespace Zverev_Kursova_OBD
 			((System.ComponentModel.ISupportInitialize)(this.NumberDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DateTimeDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ExtraInfoDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.AddTablePictureBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.PictureBox AddTablePictureBox;
 		private System.Windows.Forms.DataGridView ExtraInfoDataGridView;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.DataGridView DateTimeDataGridView;

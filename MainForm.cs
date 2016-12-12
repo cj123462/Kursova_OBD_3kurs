@@ -45,14 +45,14 @@ namespace Zverev_Kursova_OBD
 			
 				}
 			}
-			catch(Exception ex){ MessageBox.Show(ex.Message);}
+			catch(Exception ex){}
 			FirmiDataGridView.DataSource=mysql.exWithResult(@"select firm_name from firmi");
 			try{
 			foreach(DataGridViewRow row in FirmiDataGridView.Rows){ 
 				GuaranteeComboBox.Items.Add(row.Cells[0].Value.ToString());
 				}
 			}
-			catch(Exception ex){ MessageBox.Show(ex.Message);}
+			catch(Exception ex){}
 						MainDataGrid.CurrentCell=null;
 						SetDataGridValues();
 			this.KeyPreview=true;
@@ -112,8 +112,9 @@ namespace Zverev_Kursova_OBD
 				MasterComboBox.Text=MainDataGrid.Rows[rowid].Cells[14].Value.ToString();
 				ZapchastiCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[15].Value.ToString();
 				AllCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[16].Value.ToString();
+				if(MainDataGrid.Rows[rowid].Cells[17].Value.ToString()!=""){
 				string vidano=MainDataGrid.Rows[rowid].Cells[17].Value.ToString();
-				VidanoTextBox.Text=vidano.Substring(0,10);
+				VidanoTextBox.Text=vidano.Substring(0,10);}
 				DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates "+
 				 "where virib_id="+Int32.Parse(NumberTextBox.Text)+";");
 				string prijom = DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
@@ -362,7 +363,9 @@ namespace Zverev_Kursova_OBD
 			PriyomButtom.PerformClick();
 		}else if(keydata== (Keys.F12)){
 			OKButton.PerformClick();
-		}
+			} else if(keydata== Keys.F5){
+				VidachaButton.PerformClick();
+			}
 		return base.ProcessCmdKey(ref msg, keydata);
 		}
 		
@@ -390,9 +393,6 @@ namespace Zverev_Kursova_OBD
 				MySQL mysql = new MySQL();
 				DateTime myDateTime=DateTime.Now;
 				VidanoTextBox.Text=myDateTime.ToString("dd-MM-yyyy");
-				//mysql.exWithResult(@"update dates set Vidacha_date='"+
-			      //  myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
-			    //	Int32.Parse(NumberTextBox.Text)+";");
 				mysql.exWithResult(@"update "+ZakazName+ " set Vidacha_date='"+
 			        myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
 			    	Int32.Parse(NumberTextBox.Text)+";");				
@@ -429,7 +429,8 @@ namespace Zverev_Kursova_OBD
 				if(InRemontRadioButton.Checked){
 					MySQL mysql = new MySQL();
 					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "
-					                                          +ZakazName+" where TotalCost=0");
+					+ZakazName+" where TotalCost=0");
+					SetDataGridValues();
 				}
 			}
 		}
@@ -439,8 +440,9 @@ namespace Zverev_Kursova_OBD
 			if(IsInTable){
 				if(VidaniRadioButton.Checked){
 					MySQL mysql = new MySQL();
-					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+" inner join "+
-					 "dates on "+ZakazName+".virib_id=dates.virib_id and dates.Vidacha_date is not null;");
+					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+ 
+					 " where "+ZakazName+".Vidacha_date is not null;");
+					SetDataGridValues();
 				}
 			}
 		}
@@ -450,9 +452,10 @@ namespace Zverev_Kursova_OBD
 			if(IsInTable){
 				if(MadeRadioButton.Checked){
 					MySQL mysql = new MySQL();
-					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+" inner join "+
-					 "dates on "+ZakazName+".virib_id=dates.virib_id and dates.Vidacha_date is null" +
+					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+ 
+					  " where "+ZakazName+".Vidacha_date is null" +
 					 " and "+ZakazName+".TotalCost<>0;");
+					SetDataGridValues();
 				}
 			}
 		}
@@ -463,6 +466,7 @@ namespace Zverev_Kursova_OBD
 				if(AllRadioButton.Checked){
 					MySQL mysql = new MySQL();
 					MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+ZakazName+" ;");
+					SetDataGridValues();
 				}
 			}
 		}
@@ -540,6 +544,12 @@ namespace Zverev_Kursova_OBD
 			select * from стиралки where Vidacha_date='2016-12-11';");
 			IsInTable=true;
 			SetAllValues();
+		}
+		
+		void AddTablePictureBoxClick(object sender, EventArgs e)
+		{
+			AddTableForm form = new AddTableForm();
+			form.Show();
 		}
 	}
 }
