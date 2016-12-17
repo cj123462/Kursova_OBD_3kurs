@@ -36,7 +36,7 @@ namespace Zverev_Kursova_OBD
 			MySQL mysql = new MySQL();
 			mysql.exWithoutResult(@"insert into masters (Master_name) values('"
 			                      +SettingsMasterTextBox.Text+"');");
-			} else MessageBox.Show("Введите название", "Error");
+			} else MessageBox.Show("Введіть назву", "Error");
 		}
 		
 		void DropMasterButtonClick(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace Zverev_Kursova_OBD
 			MySQL mysql = new MySQL();
 			mysql.exWithoutResult(@"insert into firmi (Firm_name) values('"
 			                      +SettingsFirmaTextBox.Text+"');");
-			} else MessageBox.Show("Введите название", "Error");
+			} else MessageBox.Show("Ввудіть назву", "Error");
 		}
 		
 		void DropFirmaButtonClick(object sender, EventArgs e)

@@ -28,6 +28,7 @@ namespace Zverev_Kursova_OBD
 		string CopyWorkPhoneNumber="";
 		string CopyMobilePhoneNumber="";
 		string CopyAdress="";
+		//StringBuilder strBuild= new StringBuilder();
 		public MainForm()
 		{
 			InitializeComponent();
@@ -112,17 +113,21 @@ namespace Zverev_Kursova_OBD
 				MasterComboBox.Text=MainDataGrid.Rows[rowid].Cells[14].Value.ToString();
 				ZapchastiCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[15].Value.ToString();
 				AllCostTextBox.Text=MainDataGrid.Rows[rowid].Cells[16].Value.ToString();
+				try{
 				if(MainDataGrid.Rows[rowid].Cells[17].Value.ToString()!=""){
 				string vidano=MainDataGrid.Rows[rowid].Cells[17].Value.ToString();
 				VidanoTextBox.Text=vidano.Substring(0,10);}
+				} catch(Exception ex) {};
 				DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates "+
 				 "where virib_id="+Int32.Parse(NumberTextBox.Text)+";");
 				string prijom = DateTimeDataGridView.Rows[0].Cells[1].Value.ToString();
 				PrijomDateTextBox.Text=prijom.Substring(0,10);
 				if(DateTimeDataGridView.Rows[0].Cells[2].Value.ToString()!=""){
 				string info =DateTimeDataGridView.Rows[0].Cells[2].Value.ToString();
-				ClientInformatedTextBox.Text=info.Substring(0,10);
-				
+				ClientInformatedTextBox.Text=info.Substring(0,10);}
+				if(DateTimeDataGridView.Rows[0].Cells[3].Value.ToString()!=""){
+				string guar =DateTimeDataGridView.Rows[0].Cells[3].Value.ToString();
+				GuaranteeExpireTextBox.Text=guar.Substring(0,10);
 				}
 				
 				if(AllCostTextBox.Text!="0" && AllCostTextBox.Text!=""){ 
@@ -177,6 +182,7 @@ namespace Zverev_Kursova_OBD
 				GarTalonCheckBox.Checked=false;
 				RemoteCheckBox.Checked=false;
 				RemoteCheckBox.Checked=false;
+				GuaranteeExpireTextBox.Text="";
 		}
 		void MainDataGridSelectionChanged(object sender, EventArgs e)
 		{
@@ -303,6 +309,7 @@ namespace Zverev_Kursova_OBD
 			 		AC=Int32.Parse(AllCostTextBox.Text); 
 			 		VidachaButton.Enabled=true;
 			 	}
+			 	
 			 mysql.exWithoutResult(@"update "+ZakazName+" set ViribName='" +s1+ "',"+
 		"ViribModel='"+s2+"',VlasnikName='"+s3+"',VlasnikAdress='"+
 		s4+"',VlasnikHomeNumber='"+s5+"',VlasnikWorkNumber='"+s6
@@ -310,6 +317,7 @@ namespace Zverev_Kursova_OBD
 		s8+"',VikonanaRobota='"+s9+"',Primitki='"+s10+"',Guarantee='"+
 		s11+"', SerialNumber="+sn+",ExtraVidomosti='"+s12+"',MasterName='"+
 		s13+"', Zapchasticost="+ZC+",TotalCost="+AC+" where virib_id="+num+";");
+			 	
 			}
 			}
 			if(IsSearchModeOn==true){
@@ -335,6 +343,14 @@ namespace Zverev_Kursova_OBD
 				MasterComboBox.BackColor=c;
 				ZapchastiCostTextBox.BackColor=c;
 				AllCostTextBox.BackColor=c;
+				PrijomDateTextBox.BackColor=c;
+				VidanoTextBox.BackColor=c;
+				ClientInformatedTextBox.BackColor=c;
+				GuaranteeExpireTextBox.BackColor=c;
+				TerminalTextBox.BackColor=c;
+				AcumulatorTextBox.BackColor=c;
+				ZP1TextBox.BackColor=c;
+				ZP2TextBox.BackColor=c;
 		}
 		
 		void CopyButtonClick(object sender, EventArgs e)
@@ -531,9 +547,9 @@ namespace Zverev_Kursova_OBD
 			}
 			catch(Exception ex) {};
 			SetDataGridValues();
-			ClearAllValues();
+			//ClearAllValues();
 			SetAllValues();
-			}
+		}
 			
 		
 		void PrintButtonClick(object sender, EventArgs e)
@@ -550,6 +566,29 @@ namespace Zverev_Kursova_OBD
 		{
 			AddTableForm form = new AddTableForm();
 			form.Show();
+		}
+		
+		void GuaranteeDateTimePickerValueChanged(object sender, EventArgs e)
+		{
+			if(IsInTable && IsItExists){
+			//	int num=Int32.Parse(NumberTextBox.ToString());
+			string myDateTime = GuaranteeDateTimePicker.Value.ToString();
+			GuaranteeExpireTextBox.Text= myDateTime.Substring(0,10);
+			StringBuilder s2= new StringBuilder();
+					s2.Append(myDateTime.Substring(6,4));
+					s2.Append("-");
+					s2.Append(myDateTime.Substring(3,2));
+					s2.Append("-");
+					s2.Append(myDateTime.Substring(0,2));
+					MySQL mysql = new MySQL();
+		//	mysql.exWithResult(@"insert into dates (virib_id,Vidacha_date) values ("+
+			 	         //          num+",'"+("yyyyMMdd")+"')");
+				mysql.exWithResult(@"update dates set Vidacha_date='"+
+					                   s2.ToString()+"' where virib_id="+
+					                   Int32.Parse(NumberTextBox.Text)+";");
+			}
+		//	mysql.exWithResult(@"insert into dates (Vidacha_date) values ("+
+		//	 	                   num+",'"+Gua("yyyyMMdd")+"')");
 		}
 	}
 }

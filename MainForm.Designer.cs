@@ -145,7 +145,7 @@ namespace Zverev_Kursova_OBD
 			this.MainDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.MainDataGrid.Location = new System.Drawing.Point(12, 67);
 			this.MainDataGrid.Name = "MainDataGrid";
-			this.MainDataGrid.Size = new System.Drawing.Size(180, 636);
+			this.MainDataGrid.Size = new System.Drawing.Size(263, 636);
 			this.MainDataGrid.TabIndex = 0;
 			this.MainDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainDataGridCellClick);
 			this.MainDataGrid.SelectionChanged += new System.EventHandler(this.MainDataGridSelectionChanged);
@@ -158,7 +158,7 @@ namespace Zverev_Kursova_OBD
 			this.RadioGroupPanel.Controls.Add(this.VidaniRadioButton);
 			this.RadioGroupPanel.Controls.Add(this.InRemontRadioButton);
 			this.RadioGroupPanel.Controls.Add(this.AllRadioButton);
-			this.RadioGroupPanel.Location = new System.Drawing.Point(198, 12);
+			this.RadioGroupPanel.Location = new System.Drawing.Point(284, 11);
 			this.RadioGroupPanel.Name = "RadioGroupPanel";
 			this.RadioGroupPanel.Size = new System.Drawing.Size(165, 124);
 			this.RadioGroupPanel.TabIndex = 1;
@@ -210,7 +210,7 @@ namespace Zverev_Kursova_OBD
 			// label3
 			// 
 			this.label3.BackColor = System.Drawing.SystemColors.Control;
-			this.label3.Location = new System.Drawing.Point(198, 149);
+			this.label3.Location = new System.Drawing.Point(284, 148);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(59, 20);
 			this.label3.TabIndex = 2;
@@ -219,7 +219,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// NumberTextBox
 			// 
-			this.NumberTextBox.Location = new System.Drawing.Point(263, 149);
+			this.NumberTextBox.Location = new System.Drawing.Point(349, 148);
 			this.NumberTextBox.Name = "NumberTextBox";
 			this.NumberTextBox.Size = new System.Drawing.Size(100, 20);
 			this.NumberTextBox.TabIndex = 3;
@@ -227,7 +227,7 @@ namespace Zverev_Kursova_OBD
 			// label4
 			// 
 			this.label4.BackColor = System.Drawing.SystemColors.Control;
-			this.label4.Location = new System.Drawing.Point(396, 149);
+			this.label4.Location = new System.Drawing.Point(482, 148);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(61, 20);
 			this.label4.TabIndex = 4;
@@ -236,7 +236,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// PrijomDateTextBox
 			// 
-			this.PrijomDateTextBox.Location = new System.Drawing.Point(463, 149);
+			this.PrijomDateTextBox.Location = new System.Drawing.Point(549, 148);
 			this.PrijomDateTextBox.Name = "PrijomDateTextBox";
 			this.PrijomDateTextBox.Size = new System.Drawing.Size(100, 20);
 			this.PrijomDateTextBox.TabIndex = 5;
@@ -244,7 +244,7 @@ namespace Zverev_Kursova_OBD
 			// label5
 			// 
 			this.label5.BackColor = System.Drawing.SystemColors.Control;
-			this.label5.Location = new System.Drawing.Point(583, 149);
+			this.label5.Location = new System.Drawing.Point(669, 148);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(48, 20);
 			this.label5.TabIndex = 6;
@@ -253,7 +253,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// VidanoTextBox
 			// 
-			this.VidanoTextBox.Location = new System.Drawing.Point(637, 149);
+			this.VidanoTextBox.Location = new System.Drawing.Point(723, 148);
 			this.VidanoTextBox.Name = "VidanoTextBox";
 			this.VidanoTextBox.Size = new System.Drawing.Size(100, 20);
 			this.VidanoTextBox.TabIndex = 7;
@@ -262,7 +262,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			this.label6.BackColor = System.Drawing.SystemColors.Control;
 			this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label6.Location = new System.Drawing.Point(198, 172);
+			this.label6.Location = new System.Drawing.Point(284, 171);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(80, 23);
 			this.label6.TabIndex = 8;
@@ -273,7 +273,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			this.VirybNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.VirybNameTextBox.ForeColor = System.Drawing.Color.Blue;
-			this.VirybNameTextBox.Location = new System.Drawing.Point(291, 175);
+			this.VirybNameTextBox.Location = new System.Drawing.Point(377, 174);
 			this.VirybNameTextBox.Name = "VirybNameTextBox";
 			this.VirybNameTextBox.Size = new System.Drawing.Size(174, 22);
 			this.VirybNameTextBox.TabIndex = 9;
@@ -282,7 +282,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			this.label7.BackColor = System.Drawing.SystemColors.Control;
 			this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label7.Location = new System.Drawing.Point(471, 174);
+			this.label7.Location = new System.Drawing.Point(557, 173);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(79, 23);
 			this.label7.TabIndex = 10;
@@ -293,7 +293,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			this.VuribModelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.VuribModelTextBox.ForeColor = System.Drawing.Color.Blue;
-			this.VuribModelTextBox.Location = new System.Drawing.Point(556, 174);
+			this.VuribModelTextBox.Location = new System.Drawing.Point(642, 173);
 			this.VuribModelTextBox.Name = "VuribModelTextBox";
 			this.VuribModelTextBox.Size = new System.Drawing.Size(181, 22);
 			this.VuribModelTextBox.TabIndex = 11;
@@ -301,7 +301,7 @@ namespace Zverev_Kursova_OBD
 			// label8
 			// 
 			this.label8.BackColor = System.Drawing.SystemColors.Control;
-			this.label8.Location = new System.Drawing.Point(198, 198);
+			this.label8.Location = new System.Drawing.Point(284, 197);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(121, 18);
 			this.label8.TabIndex = 12;
@@ -323,7 +323,7 @@ namespace Zverev_Kursova_OBD
 			this.ClientInfoPanel.Controls.Add(this.label10);
 			this.ClientInfoPanel.Controls.Add(this.ClientNameTextBox);
 			this.ClientInfoPanel.Controls.Add(this.label9);
-			this.ClientInfoPanel.Location = new System.Drawing.Point(198, 219);
+			this.ClientInfoPanel.Location = new System.Drawing.Point(284, 218);
 			this.ClientInfoPanel.Name = "ClientInfoPanel";
 			this.ClientInfoPanel.Size = new System.Drawing.Size(539, 144);
 			this.ClientInfoPanel.TabIndex = 13;
@@ -451,7 +451,7 @@ namespace Zverev_Kursova_OBD
 			this.VuribInfoPanel.Controls.Add(this.label16);
 			this.VuribInfoPanel.Controls.Add(this.SkargiTextBox);
 			this.VuribInfoPanel.Controls.Add(this.label15);
-			this.VuribInfoPanel.Location = new System.Drawing.Point(198, 369);
+			this.VuribInfoPanel.Location = new System.Drawing.Point(284, 368);
 			this.VuribInfoPanel.Name = "VuribInfoPanel";
 			this.VuribInfoPanel.Size = new System.Drawing.Size(597, 127);
 			this.VuribInfoPanel.TabIndex = 14;
@@ -519,7 +519,7 @@ namespace Zverev_Kursova_OBD
 			this.GuaranteeInfoPanel.Controls.Add(this.label20);
 			this.GuaranteeInfoPanel.Controls.Add(this.GuaranteeComboBox);
 			this.GuaranteeInfoPanel.Controls.Add(this.label19);
-			this.GuaranteeInfoPanel.Location = new System.Drawing.Point(198, 516);
+			this.GuaranteeInfoPanel.Location = new System.Drawing.Point(281, 515);
 			this.GuaranteeInfoPanel.Name = "GuaranteeInfoPanel";
 			this.GuaranteeInfoPanel.Size = new System.Drawing.Size(597, 90);
 			this.GuaranteeInfoPanel.TabIndex = 15;
@@ -579,7 +579,7 @@ namespace Zverev_Kursova_OBD
 			// label18
 			// 
 			this.label18.BackColor = System.Drawing.SystemColors.Control;
-			this.label18.Location = new System.Drawing.Point(201, 499);
+			this.label18.Location = new System.Drawing.Point(284, 498);
 			this.label18.Name = "label18";
 			this.label18.Size = new System.Drawing.Size(142, 14);
 			this.label18.TabIndex = 16;
@@ -589,7 +589,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			this.label22.BackColor = System.Drawing.SystemColors.Control;
 			this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.label22.Location = new System.Drawing.Point(198, 624);
+			this.label22.Location = new System.Drawing.Point(281, 623);
 			this.label22.Name = "label22";
 			this.label22.Size = new System.Drawing.Size(80, 24);
 			this.label22.TabIndex = 17;
@@ -601,7 +601,7 @@ namespace Zverev_Kursova_OBD
 			this.MasterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.MasterComboBox.ForeColor = System.Drawing.Color.Blue;
 			this.MasterComboBox.FormattingEnabled = true;
-			this.MasterComboBox.Location = new System.Drawing.Point(284, 624);
+			this.MasterComboBox.Location = new System.Drawing.Point(367, 623);
 			this.MasterComboBox.Name = "MasterComboBox";
 			this.MasterComboBox.Size = new System.Drawing.Size(149, 24);
 			this.MasterComboBox.TabIndex = 18;
@@ -609,7 +609,7 @@ namespace Zverev_Kursova_OBD
 			// label23
 			// 
 			this.label23.BackColor = System.Drawing.SystemColors.Control;
-			this.label23.Location = new System.Drawing.Point(439, 624);
+			this.label23.Location = new System.Drawing.Point(522, 623);
 			this.label23.Name = "label23";
 			this.label23.Size = new System.Drawing.Size(82, 24);
 			this.label23.TabIndex = 19;
@@ -618,7 +618,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// ZapchastiCostTextBox
 			// 
-			this.ZapchastiCostTextBox.Location = new System.Drawing.Point(527, 624);
+			this.ZapchastiCostTextBox.Location = new System.Drawing.Point(610, 623);
 			this.ZapchastiCostTextBox.Name = "ZapchastiCostTextBox";
 			this.ZapchastiCostTextBox.Size = new System.Drawing.Size(84, 20);
 			this.ZapchastiCostTextBox.TabIndex = 20;
@@ -626,7 +626,7 @@ namespace Zverev_Kursova_OBD
 			// label24
 			// 
 			this.label24.BackColor = System.Drawing.SystemColors.Control;
-			this.label24.Location = new System.Drawing.Point(617, 624);
+			this.label24.Location = new System.Drawing.Point(700, 623);
 			this.label24.Name = "label24";
 			this.label24.Size = new System.Drawing.Size(38, 24);
 			this.label24.TabIndex = 21;
@@ -635,7 +635,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// AllCostTextBox
 			// 
-			this.AllCostTextBox.Location = new System.Drawing.Point(661, 624);
+			this.AllCostTextBox.Location = new System.Drawing.Point(744, 623);
 			this.AllCostTextBox.Name = "AllCostTextBox";
 			this.AllCostTextBox.Size = new System.Drawing.Size(76, 20);
 			this.AllCostTextBox.TabIndex = 22;
@@ -643,7 +643,7 @@ namespace Zverev_Kursova_OBD
 			// label25
 			// 
 			this.label25.BackColor = System.Drawing.SystemColors.Control;
-			this.label25.Location = new System.Drawing.Point(743, 624);
+			this.label25.Location = new System.Drawing.Point(826, 623);
 			this.label25.Name = "label25";
 			this.label25.Size = new System.Drawing.Size(79, 23);
 			this.label25.TabIndex = 23;
@@ -652,7 +652,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// GuaranteeExpireTextBox
 			// 
-			this.GuaranteeExpireTextBox.Location = new System.Drawing.Point(828, 623);
+			this.GuaranteeExpireTextBox.Location = new System.Drawing.Point(911, 622);
 			this.GuaranteeExpireTextBox.Name = "GuaranteeExpireTextBox";
 			this.GuaranteeExpireTextBox.Size = new System.Drawing.Size(100, 20);
 			this.GuaranteeExpireTextBox.TabIndex = 24;
@@ -660,7 +660,7 @@ namespace Zverev_Kursova_OBD
 			// PriyomButtom
 			// 
 			this.PriyomButtom.Enabled = false;
-			this.PriyomButtom.Location = new System.Drawing.Point(198, 651);
+			this.PriyomButtom.Location = new System.Drawing.Point(281, 650);
 			this.PriyomButtom.Name = "PriyomButtom";
 			this.PriyomButtom.Size = new System.Drawing.Size(99, 23);
 			this.PriyomButtom.TabIndex = 26;
@@ -670,7 +670,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// OKButton
 			// 
-			this.OKButton.Location = new System.Drawing.Point(303, 651);
+			this.OKButton.Location = new System.Drawing.Point(386, 650);
 			this.OKButton.Name = "OKButton";
 			this.OKButton.Size = new System.Drawing.Size(92, 23);
 			this.OKButton.TabIndex = 27;
@@ -680,17 +680,17 @@ namespace Zverev_Kursova_OBD
 			// 
 			// PrintButton
 			// 
-			this.PrintButton.Location = new System.Drawing.Point(401, 651);
+			this.PrintButton.Location = new System.Drawing.Point(484, 650);
 			this.PrintButton.Name = "PrintButton";
 			this.PrintButton.Size = new System.Drawing.Size(88, 23);
 			this.PrintButton.TabIndex = 28;
-			this.PrintButton.Text = "Печать(F9)";
+			this.PrintButton.Text = "Друк(F9)";
 			this.PrintButton.UseVisualStyleBackColor = true;
 			this.PrintButton.Click += new System.EventHandler(this.PrintButtonClick);
 			// 
 			// SearchButton
 			// 
-			this.SearchButton.Location = new System.Drawing.Point(500, 651);
+			this.SearchButton.Location = new System.Drawing.Point(583, 650);
 			this.SearchButton.Name = "SearchButton";
 			this.SearchButton.Size = new System.Drawing.Size(111, 24);
 			this.SearchButton.TabIndex = 29;
@@ -701,7 +701,7 @@ namespace Zverev_Kursova_OBD
 			// VidachaButton
 			// 
 			this.VidachaButton.Enabled = false;
-			this.VidachaButton.Location = new System.Drawing.Point(617, 652);
+			this.VidachaButton.Location = new System.Drawing.Point(700, 651);
 			this.VidachaButton.Name = "VidachaButton";
 			this.VidachaButton.Size = new System.Drawing.Size(100, 23);
 			this.VidachaButton.TabIndex = 30;
@@ -711,17 +711,17 @@ namespace Zverev_Kursova_OBD
 			// 
 			// SettingsButton
 			// 
-			this.SettingsButton.Location = new System.Drawing.Point(720, 652);
+			this.SettingsButton.Location = new System.Drawing.Point(803, 651);
 			this.SettingsButton.Name = "SettingsButton";
-			this.SettingsButton.Size = new System.Drawing.Size(87, 23);
+			this.SettingsButton.Size = new System.Drawing.Size(102, 23);
 			this.SettingsButton.TabIndex = 31;
-			this.SettingsButton.Text = "Настройки";
+			this.SettingsButton.Text = "Налаштування";
 			this.SettingsButton.UseVisualStyleBackColor = true;
 			this.SettingsButton.Click += new System.EventHandler(this.SettingsButtonClick);
 			// 
 			// CopyButton
 			// 
-			this.CopyButton.Location = new System.Drawing.Point(198, 680);
+			this.CopyButton.Location = new System.Drawing.Point(281, 679);
 			this.CopyButton.Name = "CopyButton";
 			this.CopyButton.Size = new System.Drawing.Size(99, 23);
 			this.CopyButton.TabIndex = 32;
@@ -744,7 +744,7 @@ namespace Zverev_Kursova_OBD
 			this.ComplectPanel.Controls.Add(this.label26);
 			this.ComplectPanel.Controls.Add(this.TerminalTextBox);
 			this.ComplectPanel.Controls.Add(this.label14);
-			this.ComplectPanel.Location = new System.Drawing.Point(743, 149);
+			this.ComplectPanel.Location = new System.Drawing.Point(829, 148);
 			this.ComplectPanel.Name = "ComplectPanel";
 			this.ComplectPanel.Size = new System.Drawing.Size(318, 149);
 			this.ComplectPanel.TabIndex = 33;
@@ -853,7 +853,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// GuaranteePrintButton
 			// 
-			this.GuaranteePrintButton.Location = new System.Drawing.Point(303, 680);
+			this.GuaranteePrintButton.Location = new System.Drawing.Point(386, 679);
 			this.GuaranteePrintButton.Name = "GuaranteePrintButton";
 			this.GuaranteePrintButton.Size = new System.Drawing.Size(123, 23);
 			this.GuaranteePrintButton.TabIndex = 34;
@@ -862,7 +862,7 @@ namespace Zverev_Kursova_OBD
 			// 
 			// ExitButton
 			// 
-			this.ExitButton.Location = new System.Drawing.Point(432, 680);
+			this.ExitButton.Location = new System.Drawing.Point(515, 679);
 			this.ExitButton.Name = "ExitButton";
 			this.ExitButton.Size = new System.Drawing.Size(75, 23);
 			this.ExitButton.TabIndex = 35;
@@ -900,10 +900,11 @@ namespace Zverev_Kursova_OBD
 			// 
 			// GuaranteeDateTimePicker
 			// 
-			this.GuaranteeDateTimePicker.Location = new System.Drawing.Point(930, 622);
+			this.GuaranteeDateTimePicker.Location = new System.Drawing.Point(1013, 621);
 			this.GuaranteeDateTimePicker.Name = "GuaranteeDateTimePicker";
 			this.GuaranteeDateTimePicker.Size = new System.Drawing.Size(131, 20);
 			this.GuaranteeDateTimePicker.TabIndex = 39;
+			this.GuaranteeDateTimePicker.ValueChanged += new System.EventHandler(this.GuaranteeDateTimePickerValueChanged);
 			// 
 			// NumberDataGridView
 			// 
@@ -948,7 +949,7 @@ namespace Zverev_Kursova_OBD
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
-			this.ClientSize = new System.Drawing.Size(1073, 723);
+			this.ClientSize = new System.Drawing.Size(1162, 723);
 			this.Controls.Add(this.AddTablePictureBox);
 			this.Controls.Add(this.ExtraInfoDataGridView);
 			this.Controls.Add(this.DateTimeDataGridView);

@@ -27,10 +27,6 @@ namespace Zverev_Kursova_OBD
 		{
 			closeConnection();
 		}
-
-/**
-* Підключення до сервера
-*/
 		public void connect(string server = "", string user = "", string password = "", string database = "")
 		{
 			if( connectionString == null )
@@ -44,10 +40,6 @@ namespace Zverev_Kursova_OBD
 			connection.ConnectionString = connectionString.ConnectionString;
 			connection.Open();
 		}
-
-/**
-* Перевірка статусу з'єднання. Якщо з'єднання не відкрите, виконується повторне підключення
-*/
 		public bool checkConnection()
 		{
 			if(connection.State != ConnectionState.Open)
@@ -56,9 +48,6 @@ namespace Zverev_Kursova_OBD
 			}
 			return (connection.State == ConnectionState.Open);
 		}
-		/**
-* Закриття з'єднання
-*/
 		public void closeConnection()
 		{
 			if( connection != null )
@@ -66,12 +55,6 @@ namespace Zverev_Kursova_OBD
 				connection.Clone();
 			}
 		}
-
-/**
-* Виконання операції з результатом (капітан очевидність каже, що це SELECT. нєжданчік, правда?)
-*
-* Об'єкт типу DataTable можна одразу вказувати в якості значення властивості DataSource для dataGridView
-*/
 		public DataTable exWithResult(string query)
 		{
 			MySqlCommand command = new MySqlCommand(query, connection);
@@ -84,9 +67,6 @@ namespace Zverev_Kursova_OBD
 			}
 			return result;
 		}
-/**
-* Виконання операції, що не повертає результату (INSERT, UPDATE, ALTER і т.д.)
-*/
 		public void exWithoutResult(string query)
 		{
 			MySqlCommand command = new MySqlCommand(query, connection);

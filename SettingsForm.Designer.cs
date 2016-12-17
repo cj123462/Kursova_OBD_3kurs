@@ -69,7 +69,7 @@ namespace Zverev_Kursova_OBD
 			this.AddMasterButton.Name = "AddMasterButton";
 			this.AddMasterButton.Size = new System.Drawing.Size(92, 23);
 			this.AddMasterButton.TabIndex = 2;
-			this.AddMasterButton.Text = "Добавить ";
+			this.AddMasterButton.Text = "Додати";
 			this.AddMasterButton.UseVisualStyleBackColor = true;
 			this.AddMasterButton.Click += new System.EventHandler(this.AddMasterButtonClick);
 			// 
@@ -79,7 +79,7 @@ namespace Zverev_Kursova_OBD
 			this.DropMasterButton.Name = "DropMasterButton";
 			this.DropMasterButton.Size = new System.Drawing.Size(96, 23);
 			this.DropMasterButton.TabIndex = 3;
-			this.DropMasterButton.Text = "Удалить";
+			this.DropMasterButton.Text = "Видалити";
 			this.DropMasterButton.UseVisualStyleBackColor = true;
 			this.DropMasterButton.Click += new System.EventHandler(this.DropMasterButtonClick);
 			// 
@@ -97,7 +97,7 @@ namespace Zverev_Kursova_OBD
 			this.DropFirmaButton.Name = "DropFirmaButton";
 			this.DropFirmaButton.Size = new System.Drawing.Size(96, 23);
 			this.DropFirmaButton.TabIndex = 7;
-			this.DropFirmaButton.Text = "Удалить";
+			this.DropFirmaButton.Text = "Видалити";
 			this.DropFirmaButton.UseVisualStyleBackColor = true;
 			this.DropFirmaButton.Click += new System.EventHandler(this.DropFirmaButtonClick);
 			// 
@@ -107,7 +107,7 @@ namespace Zverev_Kursova_OBD
 			this.AddFirmaButton.Name = "AddFirmaButton";
 			this.AddFirmaButton.Size = new System.Drawing.Size(92, 23);
 			this.AddFirmaButton.TabIndex = 6;
-			this.AddFirmaButton.Text = "Добавить ";
+			this.AddFirmaButton.Text = "Додати";
 			this.AddFirmaButton.UseVisualStyleBackColor = true;
 			this.AddFirmaButton.Click += new System.EventHandler(this.AddFirmaButtonClick);
 			// 
