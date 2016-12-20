@@ -121,6 +121,7 @@ namespace Zverev_Kursova_OBD
 			this.DateTimeDataGridView = new System.Windows.Forms.DataGridView();
 			this.ExtraInfoDataGridView = new System.Windows.Forms.DataGridView();
 			this.AddTablePictureBox = new System.Windows.Forms.PictureBox();
+			this.SearchFirmButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -944,12 +945,23 @@ namespace Zverev_Kursova_OBD
 			this.AddTablePictureBox.TabStop = false;
 			this.AddTablePictureBox.Click += new System.EventHandler(this.AddTablePictureBoxClick);
 			// 
+			// SearchFirmButton
+			// 
+			this.SearchFirmButton.Location = new System.Drawing.Point(596, 678);
+			this.SearchFirmButton.Name = "SearchFirmButton";
+			this.SearchFirmButton.Size = new System.Drawing.Size(121, 24);
+			this.SearchFirmButton.TabIndex = 43;
+			this.SearchFirmButton.Text = "Пошук за фірмою";
+			this.SearchFirmButton.UseVisualStyleBackColor = true;
+			this.SearchFirmButton.Click += new System.EventHandler(this.SearchFirmButtonClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1162, 723);
+			this.Controls.Add(this.SearchFirmButton);
 			this.Controls.Add(this.AddTablePictureBox);
 			this.Controls.Add(this.ExtraInfoDataGridView);
 			this.Controls.Add(this.DateTimeDataGridView);
@@ -1017,6 +1029,7 @@ namespace Zverev_Kursova_OBD
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button SearchFirmButton;
 		private System.Windows.Forms.PictureBox AddTablePictureBox;
 		private System.Windows.Forms.DataGridView ExtraInfoDataGridView;
 		private System.Windows.Forms.Label label1;

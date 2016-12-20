@@ -37,8 +37,10 @@ namespace Zverev_Kursova_OBD
 		void MainFormLoad(object sender, EventArgs e)
 		{
 			MySQL mysql = new MySQL();
+			SearchFirmButton.Enabled=false;
 			mysql.connect("localhost","root","1","zverev_kursova_obd");
 			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
+			SetDataGridValues();
 			MasterDataGridView.DataSource=mysql.exWithResult(@"select master_name from masters");
 			try{
 			foreach(DataGridViewRow row in MasterDataGridView.Rows){ 
@@ -84,7 +86,7 @@ namespace Zverev_Kursova_OBD
 					row.Cells[0].Value.ToString()=="masters" || row.Cells[0].Value.ToString()=="dates" )
 					row.Visible=false;
 				}
-			}*/ SetDataGridValues();
+			} catch (Exception ex){};*/SetDataGridValues();
 			
 			
 			}
@@ -232,8 +234,8 @@ namespace Zverev_Kursova_OBD
 			IsInTable=true;
 			ClearAllValues();
 			SetAllValues();
-
 			SetDataGridValues();
+			SearchFirmButton.Enabled=true;
 			}
 		}
 		
@@ -589,6 +591,26 @@ namespace Zverev_Kursova_OBD
 			}
 		//	mysql.exWithResult(@"insert into dates (Vidacha_date) values ("+
 		//	 	                   num+",'"+Gua("yyyyMMdd")+"')");
+		}
+		
+		void SearchFirmButtonClick(object sender, EventArgs e)
+		{
+			if(IsInTable){
+				if(SearchFirmButton.Text=="Пошук за фірмою"){
+				ClearAllValues();
+				SetColors(SystemColors.ActiveCaption);
+				SearchFirmButton.Text="Шукати";
+				} else if(SearchFirmButton.Text=="Шукати"){
+					if(GuaranteeComboBox.Text==""){ MessageBox.Show("Оберіть фірму","Error");
+					}else {
+						MySQL mysql = new MySQL();
+						MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+
+						ZakazName+" where guarantee='"+GuaranteeComboBox.Text+"';");
+						SetColors(SystemColors.Window);
+						SearchFirmButton.Text="Пошук за фірмою";
+					}
+				}
+			} 
 		}
 	}
 }
