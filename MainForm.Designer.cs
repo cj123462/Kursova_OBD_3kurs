@@ -122,6 +122,8 @@ namespace Zverev_Kursova_OBD
 			this.ExtraInfoDataGridView = new System.Windows.Forms.DataGridView();
 			this.AddTablePictureBox = new System.Windows.Forms.PictureBox();
 			this.SearchFirmButton = new System.Windows.Forms.Button();
+			this.FindSalaryButton = new System.Windows.Forms.Button();
+			this.KassaButton = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.MainDataGrid)).BeginInit();
 			this.RadioGroupPanel.SuspendLayout();
 			this.ClientInfoPanel.SuspendLayout();
@@ -955,12 +957,34 @@ namespace Zverev_Kursova_OBD
 			this.SearchFirmButton.UseVisualStyleBackColor = true;
 			this.SearchFirmButton.Click += new System.EventHandler(this.SearchFirmButtonClick);
 			// 
+			// FindSalaryButton
+			// 
+			this.FindSalaryButton.Location = new System.Drawing.Point(723, 678);
+			this.FindSalaryButton.Name = "FindSalaryButton";
+			this.FindSalaryButton.Size = new System.Drawing.Size(182, 25);
+			this.FindSalaryButton.TabIndex = 44;
+			this.FindSalaryButton.Text = "Порахувати зарплатню майстру";
+			this.FindSalaryButton.UseVisualStyleBackColor = true;
+			this.FindSalaryButton.Click += new System.EventHandler(this.FindSalaryButtonClick);
+			// 
+			// KassaButton
+			// 
+			this.KassaButton.Location = new System.Drawing.Point(914, 678);
+			this.KassaButton.Name = "KassaButton";
+			this.KassaButton.Size = new System.Drawing.Size(134, 25);
+			this.KassaButton.TabIndex = 45;
+			this.KassaButton.Text = "Підрахунок каси";
+			this.KassaButton.UseVisualStyleBackColor = true;
+			this.KassaButton.Click += new System.EventHandler(this.KassaButtonClick);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDark;
 			this.ClientSize = new System.Drawing.Size(1162, 723);
+			this.Controls.Add(this.KassaButton);
+			this.Controls.Add(this.FindSalaryButton);
 			this.Controls.Add(this.SearchFirmButton);
 			this.Controls.Add(this.AddTablePictureBox);
 			this.Controls.Add(this.ExtraInfoDataGridView);
@@ -1029,6 +1053,8 @@ namespace Zverev_Kursova_OBD
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button KassaButton;
+		private System.Windows.Forms.Button FindSalaryButton;
 		private System.Windows.Forms.Button SearchFirmButton;
 		private System.Windows.Forms.PictureBox AddTablePictureBox;
 		private System.Windows.Forms.DataGridView ExtraInfoDataGridView;

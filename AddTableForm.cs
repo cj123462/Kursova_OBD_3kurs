@@ -35,6 +35,9 @@ namespace Zverev_Kursova_OBD
 				MySQL mysql = new MySQL();
 				mysql.exWithoutResult(@"create table "+NewTableTextBox.Text+
 				                     " like холодильники;");
+				mysql.exWithoutResult(@"alter table "+NewTableTextBox.Text+" drop column Id");
+				mysql.exWithoutResult(@"alter table " +NewTableTextBox.Text+
+				" add column Id int (11), add foreign key fk_name (Id) references vurib(Id);");
 			} else MessageBox.Show("Введіть назву таблиці","Error");
 		}
 	}

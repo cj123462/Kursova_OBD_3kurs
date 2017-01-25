@@ -54,7 +54,7 @@ namespace Zverev_Kursova_OBD
 			MySQL mysql = new MySQL();
 			mysql.exWithoutResult(@"insert into firmi (Firm_name) values('"
 			                      +SettingsFirmaTextBox.Text+"');");
-			} else MessageBox.Show("Ввудіть назву", "Error");
+			} else MessageBox.Show("Введіть назву", "Error");
 		}
 		
 		void DropFirmaButtonClick(object sender, EventArgs e)

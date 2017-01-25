@@ -22,6 +22,7 @@ namespace Zverev_Kursova_OBD
 		bool IsInTable=false;
 		bool IsItExists=true;
 		bool IsSearchModeOn=false;
+		bool IsSelectedForKassa=false;
 		string ZakazName="";
 		string CopyName="";
 		string CopyHomePhoneNumber="";
@@ -520,6 +521,7 @@ namespace Zverev_Kursova_OBD
 				} 
 					
 					else if(VidanoTextBox.Text!=""){
+					IsSelectedForKassa=true;
 					string s=VidanoTextBox.Text;
 					StringBuilder s2= new StringBuilder();
 					s2.Append(s.Substring(6,4));
@@ -527,18 +529,32 @@ namespace Zverev_Kursova_OBD
 					s2.Append(s.Substring(3,2));
 					s2.Append("-");
 					s2.Append(s.Substring(0,2));
+					if(MasterComboBox.Text==""){
 					for (int i = 0; i < rowcount; i++) {
 						if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
 							if(i < rowcount){
 						querry.Append("select *  from "+tablenames[i]+" where " +
 								              "vidacha_date='"+s2.ToString()+"'");}
 						if(i<rowcount-1) querry.Append( " union all ");
+						}
+					}
+						querry.Append(";");}
+					else if(MasterComboBox.Text!=""){
+					
+					for (int i = 0; i < rowcount; i++) {
+						if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
+							if(i < rowcount){
+						querry.Append("select *  from "+tablenames[i]+" where " +
+								              "MasterName='"+MasterComboBox.Text.ToString()+"'"+
+								              " and vidacha_date='"+s2.ToString()+"'");}
+						if(i<rowcount-1) querry.Append( " union all ");
 				
 						}
 						
 					}
 						querry.Append(";");
-					}
+				}
+				}  
 				
 			try{
 			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
@@ -611,6 +627,28 @@ namespace Zverev_Kursova_OBD
 					}
 				}
 			} 
+		}
+		
+		void FindSalaryButtonClick(object sender, EventArgs e)
+		{
+			
+				//MySQL mysql = new MySQL();
+				//MainDataGrid.DataSource=mysql.
+				Search();
+			
+		}
+		
+		void KassaButtonClick(object sender, EventArgs e)
+		{
+			if(IsSelectedForKassa){
+				int Zapchasti=0;
+				int Money=0;
+				foreach(DataGridViewRow row in MainDataGrid.Rows){
+					Zapchasti+=Int32.Parse(row.Cells[15].Value.ToString());
+					Money+=Int32.Parse(row.Cells[16].Value.ToString());
+				}
+				MessageBox.Show("Запчасти: " +Zapchasti+ " Полная сумма: "+Money);
+			}
 		}
 	}
 }
