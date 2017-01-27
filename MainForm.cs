@@ -82,15 +82,7 @@ namespace Zverev_Kursova_OBD
 			IsInTable=false;
 			MySQL mysql = new MySQL();
 			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
-			/*try{
-			foreach(DataGridViewRow row in MainDataGrid.Rows){
-				if(row.Cells[0].Value.ToString()=="firmi" || row.Cells[0].Value.ToString()=="vurib" ||
-					row.Cells[0].Value.ToString()=="masters" || row.Cells[0].Value.ToString()=="dates" )
-					row.Visible=false;
-				}
-			} catch (Exception ex){};*/SetDataGridValues();
-			
-			
+			SetDataGridValues();
 			}
 			ClearAllValues();
 			ReadyLabel.Visible=false;
@@ -208,7 +200,9 @@ namespace Zverev_Kursova_OBD
 			IsInTable=false;
 			ClearAllValues();
 			MySQL mysql = new MySQL();
+			mysql.exWithoutResult(@"start transaction;");
 			MainDataGrid.DataSource=mysql.exWithResult(@"show tables");
+			mysql.exWithoutResult(@"commit;");
 			try{
 			foreach(DataGridViewRow row in MainDataGrid.Rows){
 				if(row.Cells[0].Value.ToString()=="firmi" || 
@@ -232,7 +226,9 @@ namespace Zverev_Kursova_OBD
 			MySQL mysql = new MySQL();
 			int rowindex = MainDataGrid.CurrentRow.Index;
 			string str= MainDataGrid.Rows[rowindex].Cells[0].Value.ToString();
+			mysql.exWithoutResult(@"start transaction;");
 			MainDataGrid.DataSource=mysql.exWithResult(@"select * from "+str+";");
+			mysql.exWithoutResult(@"commit;");
 			IsInTable=true;
 			ClearAllValues();
 			SetAllValues();
@@ -244,8 +240,10 @@ namespace Zverev_Kursova_OBD
 		void PriyomButtomClick(object sender, EventArgs e)
 		{
 			MySQL mysql = new MySQL();
+			mysql.exWithoutResult(@"start transaction;");
 			mysql.exWithoutResult(@"insert into vurib (void) values('');");
-			NumberDataGridView.DataSource=mysql.exWithResult(@"select last_insert_id()");//(@"select * from vurib;");
+			NumberDataGridView.DataSource=mysql.exWithResult(@"select last_insert_id()");
+			mysql.exWithoutResult(@"commit;");
 			NumberTextBox.Text=NumberDataGridView.Rows[0].Cells[0].Value.ToString();
 			int num=Int32.Parse(NumberTextBox.Text);
 			VirybNameTextBox.Text=ZakazName;
@@ -283,7 +281,7 @@ namespace Zverev_Kursova_OBD
 			 string s17=ZP1TextBox.Text;
 			 string s18=ZP2TextBox.Text;
 			 if(IsItExists==false){
-			 	
+			 mysql.exWithoutResult(@"start transaction;");
 			mysql.exWithoutResult(@"insert into "+ZakazName+" (ViribName,virib_id, ViribModel,VlasnikName"+
 		",VlasnikAdress,VlasnikHomeNumber,VlasnikWorkNumber,VlasnikMobileNumber,Skargi"
 		+",VikonanaRobota,Primitki, Guarantee, SerialNumber, ExtraVidomosti,"+
@@ -304,6 +302,7 @@ namespace Zverev_Kursova_OBD
 				" values ("+num+",'"+s15+"','"+s16+"','"+s17+"','"+s18+"',"+b1+
 				","+b2+","+b3+");");
 			 	}
+			 	mysql.exWithoutResult(@"commit;");
 			 }
 			 if(IsItExists==true){
 			 	int ZC=0;
@@ -313,7 +312,7 @@ namespace Zverev_Kursova_OBD
 			 		AC=Int32.Parse(AllCostTextBox.Text); 
 			 		VidachaButton.Enabled=true;
 			 	}
-			 	
+			 	mysql.exWithoutResult(@"start transaction;");
 			 mysql.exWithoutResult(@"update "+ZakazName+" set ViribName='" +s1+ "',"+
 		"ViribModel='"+s2+"',VlasnikName='"+s3+"',VlasnikAdress='"+
 		s4+"',VlasnikHomeNumber='"+s5+"',VlasnikWorkNumber='"+s6
@@ -321,7 +320,7 @@ namespace Zverev_Kursova_OBD
 		s8+"',VikonanaRobota='"+s9+"',Primitki='"+s10+"',Guarantee='"+
 		s11+"', SerialNumber="+sn+",ExtraVidomosti='"+s12+"',MasterName='"+
 		s13+"', Zapchasticost="+ZC+",TotalCost="+AC+" where virib_id="+num+";");
-			 	
+			 	mysql.exWithoutResult(@"commit;");
 			}
 			}
 			if(IsSearchModeOn==true){
@@ -399,7 +398,8 @@ namespace Zverev_Kursova_OBD
 			ClientInformatedTextBox.Text=myDateTime.ToString("dd-MM-yyyy");
 			mysql.exWithResult(@"update dates set Info_date='"+
 			                   myDateTime.Date.ToString("yyyyMMdd")+"' where virib_id="+
-			                   Int32.Parse(NumberTextBox.Text)+";");}
+			                   Int32.Parse(NumberTextBox.Text)+";");
+			}
 		}
 		
 		void VidachaButtonClick(object sender, EventArgs e)
@@ -504,7 +504,9 @@ namespace Zverev_Kursova_OBD
 					if(str!="firmi" && str!="masters" && str!="vurib")
 						tablenames[i]=str;
 					}
-				if(findnum!=""){ querry.Append("select * from( (");
+				if(findnum!=""){ 
+					querry.Append("start transaction; ");
+					querry.Append("select * from( (");
 					for (int i = 0; i < rowcount; i++) {
 						if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
 						if(i < rowcount)
@@ -519,9 +521,11 @@ namespace Zverev_Kursova_OBD
 			}
 				
 					querry.Append(") as t where virib_id="+findnum+";");
+					querry.Append("commit;");
 				} 
 					
 					else if(VidanoTextBox.Text!=""){
+					querry.Append("start transaction; ");
 					IsSelectedForKassa=true;
 					string s=VidanoTextBox.Text;
 					StringBuilder s2= new StringBuilder();
@@ -539,8 +543,11 @@ namespace Zverev_Kursova_OBD
 						if(i<rowcount-1) querry.Append( " union all ");
 						}
 					}
-						querry.Append(";");}
+						querry.Append(";");
+						querry.Append("commit;");
+					}
 					else if(MasterComboBox.Text!=""){
+						querry.Append("start transaction;");
 						IsSelectedMasterSalary=true;	
 						IsSelectedForKassa=true; ///
 					for (int i = 0; i < rowcount; i++) {
@@ -555,19 +562,21 @@ namespace Zverev_Kursova_OBD
 						
 					}
 						querry.Append(";");
+						querry.Append("commit;");
 				}
 				}  
 				
 			try{
 			MainDataGrid.DataSource=mysql.exWithResult(querry.ToString());
 			IsInTable=true;
+			mysql.exWithoutResult("start transaction;");
 			DateTimeDataGridView.DataSource=mysql.exWithResult(@"select * from dates"+
 			"where virib_id="+findnum+";");
+			mysql.exWithoutResult("commit;");
 			IsInTable=true;
 			}
 			catch(Exception ex) {};
 			SetDataGridValues();
-			//ClearAllValues();
 			SetAllValues();
 		}
 			
@@ -591,7 +600,6 @@ namespace Zverev_Kursova_OBD
 		void GuaranteeDateTimePickerValueChanged(object sender, EventArgs e)
 		{
 			if(IsInTable && IsItExists){
-			//	int num=Int32.Parse(NumberTextBox.ToString());
 			string myDateTime = GuaranteeDateTimePicker.Value.ToString();
 			GuaranteeExpireTextBox.Text= myDateTime.Substring(0,10);
 			StringBuilder s2= new StringBuilder();
@@ -601,14 +609,10 @@ namespace Zverev_Kursova_OBD
 					s2.Append("-");
 					s2.Append(myDateTime.Substring(0,2));
 					MySQL mysql = new MySQL();
-		//	mysql.exWithResult(@"insert into dates (virib_id,Vidacha_date) values ("+
-			 	         //          num+",'"+("yyyyMMdd")+"')");
 				mysql.exWithResult(@"update dates set Vidacha_date='"+
 					                   s2.ToString()+"' where virib_id="+
 					                   Int32.Parse(NumberTextBox.Text)+";");
 			}
-		//	mysql.exWithResult(@"insert into dates (Vidacha_date) values ("+
-		//	 	                   num+",'"+Gua("yyyyMMdd")+"')");
 		}
 		
 		void SearchFirmButtonClick(object sender, EventArgs e)
