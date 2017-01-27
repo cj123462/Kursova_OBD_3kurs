@@ -23,6 +23,7 @@ namespace Zverev_Kursova_OBD
 		bool IsItExists=true;
 		bool IsSearchModeOn=false;
 		bool IsSelectedForKassa=false;
+		bool IsSelectedMasterSalary=false;
 		string ZakazName="";
 		string CopyName="";
 		string CopyHomePhoneNumber="";
@@ -540,7 +541,8 @@ namespace Zverev_Kursova_OBD
 					}
 						querry.Append(";");}
 					else if(MasterComboBox.Text!=""){
-					
+						IsSelectedMasterSalary=true;	
+						IsSelectedForKassa=true; ///
 					for (int i = 0; i < rowcount; i++) {
 						if(tablenames[i]!="vurib" && tablenames[i]!="masters" && tablenames[i]!="firmi"){
 							if(i < rowcount){
@@ -631,11 +633,18 @@ namespace Zverev_Kursova_OBD
 		
 		void FindSalaryButtonClick(object sender, EventArgs e)
 		{
-			
-				//MySQL mysql = new MySQL();
-				//MainDataGrid.DataSource=mysql.
-				Search();
-			
+			if(IsSelectedMasterSalary){
+				double Money=0;
+				foreach(DataGridViewRow row in MainDataGrid.Rows){
+					Money+=Int32.Parse(row.Cells[16].Value.ToString());
+				}
+				double persents = Double.Parse(MasterSalaryTextBox.Text);
+				persents/=100;
+				Money*=persents;
+				MessageBox.Show("Зарплата мастера " +MasterComboBox.Text+" составляет:"+Money);
+				IsSelectedMasterSalary=false;
+				MasterSalaryTextBox.Text="";
+			}
 		}
 		
 		void KassaButtonClick(object sender, EventArgs e)
@@ -647,6 +656,7 @@ namespace Zverev_Kursova_OBD
 					Zapchasti+=Int32.Parse(row.Cells[15].Value.ToString());
 					Money+=Int32.Parse(row.Cells[16].Value.ToString());
 				}
+				IsSelectedForKassa=false;
 				MessageBox.Show("Запчасти: " +Zapchasti+ " Полная сумма: "+Money);
 			}
 		}
